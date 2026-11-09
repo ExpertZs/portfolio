@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function NotFound(){return <section className="mx-auto py-24 text-center"><span className="text-cyan-500">404</span><h1 className="mt-4 text-4xl font-bold">This page isn’t here.</h1><p className="mt-4 text-gray-500">Let’s get you back to the portfolio.</p><Link className="mt-6 inline-block rounded-full bg-gradient-to-r from-cyan-600 to-teal-500 px-6 py-3 text-white" href="/">Back home</Link></section>}

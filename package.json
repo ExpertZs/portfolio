@@ -1,0 +1,40 @@
+{
+  "name": "zahidul-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "resume:build": "node scripts/publish-resume.cjs",
+    "check": "npm run typecheck && npm test && npm run build",
+    "resume:draft": "node scripts/export-resume.cjs && node scripts/build-resume.cjs"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.9.2",
+    "framer-motion": "^12.0.0",
+    "lucide-react": "^0.468.0",
+    "next": "^16.0.0",
+    "next-themes": "^0.4.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-hook-form": "^7.51.3",
+    "react-icons": "^5.1.0",
+    "react-type-animation": "^3.2.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.4.0",
+    "jsdom": "^31.0.0",
+    "pdfjs-dist": "^6.5.438",
+    "pdfkit": "^0.20.2",
+    "postcss": "^8.4.0",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.9.0"
+  }
+}
