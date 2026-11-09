@@ -1,0 +1,57 @@
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    screens: {
+      sm: "280px",
+      md: "768px",
+      lg: "1440px",
+      xl: "1920px",
+    },
+    fontFamily: {
+      roboto: ["Roboto", "sans-serif"],
+      montserrat: '"Montserrat Alternates", sans-serif',
+      plaster: '"Plaster", cursive',
+      mplus_1p: '"M PLUS 1p", sans-serif',
+      notable: '"Notable", sans-serif',
+      nosifer: '"Nosifer Caps"',
+      poppins: '"Poppins", sans-serif',
+      fira_code: '"Fira Code", monospace',
+    },
+    extend: {
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "marquee-reverse": {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 45s linear infinite",
+        "marquee-reverse": "marquee-reverse 50s linear infinite",
+      },
+      colors: {
+        primary: "#00BCD4",
+        tertiary: "#F44336",
+        primary_light: "#B2EBF2",
+        primary_dark: "#037887",
+      },
+    },
+  },
+  plugins: [],
+  darkMode: "class",
+};
+export default config;

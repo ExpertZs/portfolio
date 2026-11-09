@@ -1,0 +1,210 @@
+{
+  "testingExperience": "Worked on API and UI test automation using Vitest, Cypress, and Playwright, alongside regression checks and CI workflows.",
+  "profile": {
+    "name": "Md. Zahidul Islam",
+    "email": "zs.engineer1@gmail.com",
+    "phone": "+8801754898514",
+    "github": "https://github.com/ExpertZs",
+    "summary": "Full-Stack Software Engineer focused on React, Next.js, and TypeScript, with 4+ years delivering web applications and collaborating with Japan-based teams. Experience spans reusable interfaces, API and database integration, Stripe payment flows, and AI-powered knowledge applications."
+  },
+  "experience": [
+    {
+      "company": "Ninja Digital Innovations Ltd.",
+      "date": "July 2025 — Present",
+      "location": "Dhaka, Bangladesh",
+      "points": [
+        "Develop and maintain production web applications with React, Next.js, TypeScript, and reusable component architecture.",
+        "Build REST APIs and database-backed workflows with Node.js, Prisma, and relational databases.",
+        "Refine data-fetching and responsive UI behavior; contribute code reviews, debugging, testing, and release checks with Japan-based stakeholders."
+      ]
+    },
+    {
+      "company": "Brand Cloud Inc.",
+      "date": "March 2023 — June 2025",
+      "location": "Remote, Japan",
+      "points": [
+        "Delivered frontend and API-connected features for MoeGuide and Suirikyou using Next.js, TypeScript, and Stripe.",
+        "Translated supplied designs into reusable components and resolved desktop/mobile layout and interaction issues.",
+        "Added Cypress end-to-end coverage and contributed to sprint planning and code reviews with Japanese teammates."
+      ]
+    },
+    {
+      "company": "Suncreer Co., Ltd.",
+      "date": "December 2022 — February 2023",
+      "location": "Remote, Japan",
+      "points": [
+        "Developed Smart Inventory Management workflows using React, Laravel, MySQL, and APIs for inventory, purchasing, sales, and reporting."
+      ]
+    },
+    {
+      "company": "Bconns Technologies Ltd.",
+      "date": "October 2021 — March 2022",
+      "location": "",
+      "points": [
+        "Built REST APIs and React interfaces for enterprise inventory, stock, purchasing, and sales operations."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Brand Cloud Corporate Website",
+      "category": "Web",
+      "image": "/images/corporate.png",
+      "url": "https://brandcloud.co.jp",
+      "description": "Contributed to the WordPress-to-Next.js redevelopment: built responsive pages and reusable React components, integrated API-driven content, and refined image handling and data loading using Lighthouse investigations.",
+      "stack": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "REST APIs",
+        "Lighthouse"
+      ]
+    },
+    {
+      "name": "Brand Cloud Service Website",
+      "category": "Web",
+      "image": "/images/service.png",
+      "url": "https://solution.brandcloud.co.jp",
+      "description": "Built service pages and reusable frontend components during a WordPress-to-Next.js modernization. Integrated API-driven content and resolved layout and interaction issues across screen sizes.",
+      "stack": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "API integration"
+      ]
+    },
+    {
+      "name": "Raggie",
+      "displayName": "KnowledgeLinks AI (Raggie)",
+      "category": "AI",
+      "image": "/images/projects/raggie.webp",
+      "url": "https://knowledgelinks.ai/lp1/",
+      "shared": true,
+      "description": "KnowledgeLinks AI, also known as Raggie, is an enterprise knowledge platform using RAG and AI agents to help teams find and use company information. Implemented Next.js/TypeScript interfaces, integrated tRPC APIs, and worked with PostgreSQL/Prisma data flows and asynchronous UI states.",
+      "stack": [
+        "Next.js",
+        "TypeScript",
+        "tRPC",
+        "PostgreSQL",
+        "Prisma",
+        "AI integration"
+      ]
+    },
+    {
+      "name": "Suirikyu",
+      "displayName": "Suirikyou",
+      "category": "Web",
+      "image": "/images/projects/suirikyou.webp",
+      "url": "https://suirikyou-brandcloud.vercel.app/",
+      "shared": true,
+      "description": "Built assessment interfaces and backend-connected workflows for an assessment and certification platform. Integrated Stripe payment interactions and handled payment-related UI states through reusable components.",
+      "stack": [
+        "Next.js",
+        "TypeScript",
+        "Stripe",
+        "API integration"
+      ]
+    },
+    {
+      "name": "MOE Guide",
+      "displayName": "MoeGuide",
+      "category": "Web",
+      "image": "/images/projects/moeguide.webp",
+      "url": "https://moeguide-app.vercel.app/",
+      "shared": true,
+      "description": "Developed destination-content interfaces and itinerary features with Next.js and TypeScript. Integrated API-driven travel content and refined desktop and mobile usability.",
+      "stack": [
+        "Next.js",
+        "TypeScript",
+        "React",
+        "API integration"
+      ]
+    },
+    {
+      "name": "Online Reputation Management",
+      "isPrivate": true,
+      "category": "Platforms",
+      "image": "/images/orm.svg",
+      "url": null,
+      "description": "Brand protection and monitoring application. Contributed monitoring interfaces, risk-keyword signals, and REST API-connected reputation review workflows.",
+      "stack": [
+        "React",
+        "TypeScript",
+        "REST APIs"
+      ]
+    }
+  ],
+  "core": [
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Tailwind CSS",
+    "Node.js",
+    "REST",
+    "Prisma",
+    "PostgreSQL",
+    "MySQL"
+  ],
+  "skills": {
+    "Frontend": [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Figma"
+    ],
+    "Backend": [
+      "Node.js",
+      "PHP",
+      "Ruby",
+      "REST",
+      "GraphQL",
+      "WebSockets/SSE",
+      "Prisma"
+    ],
+    "Database": [
+      "PostgreSQL",
+      "MySQL",
+      "Redis",
+      "Schema design",
+      "Query optimization"
+    ],
+    "Cloud & quality": [
+      "AWS",
+      "Cloudflare",
+      "Docker",
+      "GitHub Actions",
+      "Nginx",
+      "Playwright",
+      "Cypress",
+      "Core Web Vitals",
+      "Lighthouse"
+    ],
+    "Security & AI": [
+      "Dify",
+      "JWT",
+      "OAuth 2.0",
+      "NextAuth/Auth.js",
+      "RAG",
+      "LLM",
+      "Integration",
+      "Agent workflows",
+      "Streaming responses"
+    ]
+  },
+  "education": [
+    [
+      "MSc, Computer Science — Jahangirnagar University",
+      "2019–2021 · CGPA 3.60/4.00"
+    ],
+    [
+      "BSc, Computer Science & Engineering — Uttara University",
+      "2015–2018 · CGPA 3.88/4.00"
+    ]
+  ],
+  "awards": "ITEE FE — BD-ITEC, 2022 · Vice-Chancellor Award — Uttara University"
+}
