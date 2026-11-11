@@ -134,7 +134,7 @@ function ProjectCard({
 }) {
   const reduce = useReducedMotion();
   const type = TYPES[project.type as TypeId] ?? TYPES.web;
-  const shownStack = project.stack.slice(0, featured ? 8 : 4);
+  const shownStack = project.stack.slice(0, 4);
   const extra = project.stack.length - shownStack.length;
 
   const onMove = (e: React.PointerEvent<HTMLElement>) => {
@@ -154,24 +154,18 @@ function ProjectCard({
       whileHover={reduce ? undefined : { y: -6 }}
       onPointerMove={onMove}
       style={{ ["--glow" as string]: type.glow }}
-      className={`group relative flex overflow-hidden rounded-3xl border border-brand-border bg-brand-surface shadow-sm backdrop-blur transition-shadow duration-300 hover:shadow-2xl hover:shadow-indigo-500/10 dark:border-brand-border dark:bg-brand-surface ${
-        featured ? "flex-col md:col-span-2 md:flex-row" : "flex-col"
-      }`}
+      className="group relative flex overflow-hidden rounded-3xl border border-brand-border bg-brand-surface shadow-sm backdrop-blur transition-shadow duration-300 hover:shadow-2xl hover:shadow-indigo-500/10 dark:border-brand-border dark:bg-brand-surface h-full flex-col"
     >
       {/* Image */}
       <div
-        className={`relative overflow-hidden bg-brand-soft dark:bg-brand-surface ${
-          featured ? "aspect-[16/10] md:aspect-auto md:w-[55%] md:min-h-[320px]" : "aspect-[16/10]"
-        }`}
+        className="relative overflow-hidden bg-brand-soft dark:bg-brand-surface aspect-[16/10] w-full shrink-0"
       >
         <SmartImage
           src={project.src}
           alt={`${project.project_title} ${project.illustrated ? "illustrated cover" : "project preview"}`}
           fill
           sizes={
-            featured
-              ? "(min-width: 1100px) 600px, (min-width: 768px) 50vw, 100vw"
-              : "(min-width: 1100px) 380px, (min-width: 768px) 50vw, 100vw"
+            "(min-width: 1100px) 380px, (min-width: 768px) 50vw, 100vw"
           }
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
         />
@@ -211,11 +205,9 @@ function ProjectCard({
       />
 
       {/* Body */}
-      <div className={`relative flex flex-1 flex-col p-5 md:p-6 ${featured ? "md:justify-center" : ""}`}>
+      <div className="relative flex flex-1 flex-col p-5 md:p-6">
         <h3
-          className={`font-poppins font-semibold text-brand-text ${
-            featured ? "text-2xl md:text-3xl" : "text-lg md:text-xl"
-          }`}
+          className="font-poppins font-semibold text-brand-text text-lg md:text-xl"
         >
           {project.project_title}
         </h3>
@@ -237,7 +229,7 @@ function ProjectCard({
           )}
         </div>
 
-        <div className={`flex flex-wrap items-center gap-2 ${featured ? "pt-6" : "mt-auto pt-5"}`}>
+        <div className="mt-auto flex flex-wrap items-center gap-2 pt-5">
           {project.live_link && (
             <a
               href={project.live_link}
@@ -310,14 +302,12 @@ export default function ProjectsSection({
 
   const filtered = useMemo(() => {
     const list = projects.filter((p) => matches(p, type, origin));
-    // Pull the featured project to the front so it renders as the big card.
+    // Keep featured work first without changing the shared card layout.
     const feat = list.find((p) => p.featured);
     return feat ? [feat, ...list.filter((p) => p !== feat)] : list;
   }, [type, origin, projects]);
 
-  const hasFeatured = !!filtered[0]?.featured;
-  // 5 cards with a featured one (2+1 / 3) and 6 without (3 / 3) fill whole rows.
-  const limit = compact ? (hasFeatured ? 5 : 6) : filtered.length;
+  const limit = compact ? 6 : filtered.length;
   const visible = filtered.slice(0, limit);
 
   return (
@@ -372,7 +362,7 @@ export default function ProjectsSection({
 
       <motion.div
         layout
-        className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 min-[1100px]:grid-cols-3"
+        className="mt-8 grid auto-rows-fr grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 min-[1100px]:grid-cols-3"
       >
         <AnimatePresence mode="popLayout">
           {visible.map((project, i) => (
@@ -380,7 +370,7 @@ export default function ProjectsSection({
               key={project.id}
               project={project}
               index={i}
-              featured={i === 0 && !!project.featured}
+              featured={!!project.featured}
             />
           ))}
         </AnimatePresence>
