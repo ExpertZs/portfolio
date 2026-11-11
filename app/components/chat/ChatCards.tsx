@@ -62,7 +62,7 @@ export default function ChatCards({ cards }: { cards: CardRef[] }) {
                 {(project.stack ?? []).slice(0, 5).map((tech) => (
                   <span
                     key={tech}
-                    className="rounded bg-gray-200 px-1.5 py-0.5 text-[11px] dark:bg-gray-800"
+                    className="rounded bg-brand-soft px-1.5 py-0.5 text-[11px] text-brand-muted"
                   >
                     {tech}
                   </span>
@@ -73,7 +73,7 @@ export default function ChatCards({ cards }: { cards: CardRef[] }) {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 inline-block text-brand-accent underline "
+                  className="mt-3 inline-flex rounded-full brand-action px-4 py-2 text-xs font-semibold"
                 >
                   {project.live_link ? "Live demo" : "View on GitHub"}
                 </a>

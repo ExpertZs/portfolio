@@ -177,6 +177,7 @@ function Footer({ contact }: { contact: ContactInfo }) {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-2 border-t border-brand-border pt-6 text-center dark:border-brand-border md:flex-row md:text-left">
           <p className="text-xs text-brand-muted " suppressHydrationWarning>
+            <Link href="/privacy" className="mr-4 underline underline-offset-4 hover:text-brand-accent">Privacy policy</Link>
             © {year ?? ""} {contact.full_name}. All rights reserved.
           </p>
           <p className="text-xs text-brand-muted ">

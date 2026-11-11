@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Shell } from '@/components/shell';
-const url = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+const url = process.env.NEXT_PUBLIC_SITE_URL || 'https://portfolio-zahidul.vercel.app';
 export const metadata: Metadata = {metadataBase:new URL(url),title:{default:'Md. Zahidul Islam | Full Stack Software Engineer',template:'%s | Zahidul Islam'},description:'Full Stack Software Engineer with 4+ years of experience building React, Next.js, TypeScript, API-driven applications, and AI-powered product features.',openGraph:{type:'website',title:'Md. Zahidul Islam | Software Engineer',description:'Thoughtful interfaces. Reliable engineering. Explore my work and experience.',images:['/images/zahidul_c.png']},twitter:{card:'summary',images:['/images/zahidul_c.png']},robots:{index:true,follow:true}};
 export default function RootLayout({children}:{children:React.ReactNode}) { return <html lang="en" suppressHydrationWarning><body className="relative min-h-screen overflow-x-hidden bg-brand-bg text-brand-text"><Shell>{children}</Shell><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({'@context':'https://schema.org','@type':'Person',name:'Md. Zahidul Islam',jobTitle:'Full Stack Software Engineer',url,sameAs:['https://github.com/ExpertZs']})}}/></body></html> }

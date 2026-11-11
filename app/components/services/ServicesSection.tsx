@@ -132,7 +132,7 @@ function ServiceCard({
       {/* Accent line + mouse-follow glow */}
       <div
         aria-hidden
-        className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${accent.tile} opacity-70 transition-opacity group-hover:opacity-100`}
+        className={`absolute inset-x-0 top-0 h-1 brand-action opacity-70 transition-opacity group-hover:opacity-100`}
       />
       <div
         aria-hidden
@@ -145,7 +145,7 @@ function ServiceCard({
 
       <div className="relative flex items-start justify-between">
         <span
-          className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${accent.tile} text-3xl text-white shadow-lg transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110`}
+          className={`flex h-14 w-14 items-center justify-center rounded-2xl brand-action text-3xl text-white shadow-lg transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110`}
         >
           {accent.icon}
         </span>
@@ -230,7 +230,7 @@ function ServiceCard({
           </button>
           <Link
             href="/contact"
-            className={`flex items-center gap-1 rounded-full bg-gradient-to-r ${accent.tile} px-3 py-1 text-xs font-medium text-white shadow transition hover:shadow-lg`}
+            className={`flex items-center gap-1 rounded-full brand-action px-3 py-1 text-xs font-medium text-white shadow transition hover:shadow-lg`}
           >
             Get a quote <MdArrowOutward className="text-sm" />
           </Link>
