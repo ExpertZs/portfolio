@@ -2,14 +2,12 @@
 
 import Link from "next/link";
 import { presentationProjects as projects } from "@/lib/presentation";
-const blogs: {id:string;date:string;title:string}[] = [];
 
 export type CardRef =
   | { type: "project"; id: string }
-  | { type: "blog"; id: string }
   | { type: "contact" };
 
-const MARKER = /\[\[(project|blog|contact)(?::([^\]\s]+))?\]\]/g;
+const MARKER = /\[\[(project|contact)(?::([^\]\s]+))?\]\]/g;
 
 /** Splits a streamed reply into visible text and the cards the model asked for. */
 export function parseReply(raw: string): { text: string; cards: CardRef[] } {
@@ -20,7 +18,7 @@ export function parseReply(raw: string): { text: string; cards: CardRef[] } {
     if (!seen[key]) {
       seen[key] = true;
       if (type === "contact") cards.push({ type: "contact" });
-      else if (id) cards.push({ type: type as "project" | "blog", id });
+      else if (id) cards.push({ type: type as "project", id });
     }
     return "";
   });
@@ -83,18 +81,8 @@ export default function ChatCards({ cards }: { cards: CardRef[] }) {
             </div>
           );
         }
-        const blog = blogs.find((b) => String(b.id) === card.id);
-        if (!blog) return null;
-        return (
-          <Link key={index} href={`/blogs/${blog.id}`} className={cardBase}>
-            <div className="text-[11px] uppercase tracking-wide text-brand-muted">
-              Blog · {blog.date}
-            </div>
-            <div className="font-semibold text-brand-accent ">
-              {blog.title}
-            </div>
-          </Link>
-        );
+        
+        return null;
       })}
     </div>
   );

@@ -18,7 +18,6 @@ const EXPLORE = [
   { href: "/experience", label: "Experience" },
   { href: "/projects", label: "Projects" },
   { href: "/services", label: "Services" },
-  { href: "/blogs", label: "Blogs" },
   { href: "/match", label: "AI Job Match" },
   { href: "/contact", label: "Contact" },
 ];

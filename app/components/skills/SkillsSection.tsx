@@ -27,25 +27,25 @@ const LEVELS: Record<string, { label: string; rank: number; chip: string; bar: s
   advanced: {
     label: "Advanced",
     rank: 4,
-    chip: "bg-brand-soft text-brand-accent",
-    bar: "bg-brand-accent",
+    chip: "bg-violet-500/10 text-violet-700 dark:text-violet-300",
+    bar: "border-violet-600 bg-violet-600 dark:border-violet-400 dark:bg-violet-400",
   },
   proficient: {
     label: "Proficient", rank: 3,
-    chip: "bg-brand-soft text-brand-accent",
-    bar: "bg-brand-accent",
+    chip: "bg-indigo-500/10 text-indigo-700 dark:text-indigo-300",
+    bar: "border-indigo-600 bg-indigo-600 dark:border-indigo-400 dark:bg-indigo-400",
   },
   intermediate: {
     label: "Intermediate",
     rank: 2,
-    chip: "bg-brand-soft text-brand-accent",
-    bar: "bg-brand-accent",
+    chip: "bg-blue-500/10 text-blue-700 dark:text-blue-300",
+    bar: "border-blue-600 bg-blue-600 dark:border-blue-400 dark:bg-blue-400",
   },
   beginner: {
     label: "Learning",
     rank: 1,
-    chip: "bg-brand-soft text-brand-accent",
-    bar: "bg-brand-accent",
+    chip: "bg-amber-500/10 text-amber-800 dark:text-amber-300",
+    bar: "border-amber-600 bg-amber-600 dark:border-amber-400 dark:bg-amber-400",
   },
 };
 
@@ -174,12 +174,12 @@ function SkillCard({ skill, index }: { skill: Skill; index: number }) {
       </h3>
 
       {level.rank > 0 && <div className="relative mt-2 flex gap-1" role="img" aria-label={`${level.label}: ${level.rank} of 4 experience-based levels`}>
-        {[1, 2, 3, 4].map(step => <span key={step} className="h-1.5 flex-1 overflow-hidden rounded-full bg-black/10 dark:bg-brand-soft">
-          <motion.span className={`block h-full rounded-full ${level.bar}`} initial={{width:reduce && step<=level.rank?'100%':0}} whileInView={{width:step<=level.rank?'100%':0}} viewport={{once:true}} transition={{duration:reduce?0:.6,delay:reduce?0:.25+step*.12,ease:'easeOut'}}/>
-        </span>)}
+        {[1, 2, 3, 4].map(step => (
+          <span key={step} className={`h-2 flex-1 rounded-full border ${step <= level.rank ? level.bar : 'border-brand-border bg-brand-soft'}`} />
+        ))}
       </div>}
       {skill.experience_label && <p className="relative mt-2 text-xs font-medium text-brand-accent ">{skill.experience_label}</p>}
-      {skill.details && <p className="relative mt-2 line-clamp-3 text-xs leading-relaxed text-brand-muted ">
+      {skill.details && <p className="relative mt-2 text-sm leading-relaxed text-brand-muted ">
         {skill.details}
       </p>}
     </motion.div>
@@ -195,6 +195,8 @@ export default function SkillsSection({ skills: input }: { skills: SkillInfo[] }
     [group, skills]
   );
 
+  const availableGroups = GROUPS.filter(g => g.id === "all" || skills.some(s => s.group === g.id));
+
   const stats = useMemo(
     () => [
       { label: "Technologies", value: skills.length, suffix: "" },
@@ -208,7 +210,7 @@ export default function SkillsSection({ skills: input }: { skills: SkillInfo[] }
         value: 6,
         suffix: "",
       },
-      { label: "Domains", value: GROUPS.length - 1, suffix: "" },
+      { label: "Domains", value: new Set(skills.map(s => s.group)).size, suffix: "" },
     ],
     [skills]
   );
@@ -273,7 +275,7 @@ export default function SkillsSection({ skills: input }: { skills: SkillInfo[] }
       </div>
 
       {/* Marquee (decorative: the grid below lists every skill) */}
-      <div className="mt-8 space-y-3" aria-hidden>
+      <div className="mt-6 space-y-2" aria-hidden>
         <MarqueeRow items={rowA} />
         <MarqueeRow items={rowB} reverse />
       </div>
@@ -282,9 +284,9 @@ export default function SkillsSection({ skills: input }: { skills: SkillInfo[] }
       <div
         role="group"
         aria-label="Filter skills by domain"
-        className="mt-10 flex flex-wrap items-center justify-center gap-2"
+        className="mt-6 flex flex-wrap items-center justify-center gap-2"
       >
-        {GROUPS.map((g) => {
+        {availableGroups.map((g) => {
           const selected = group === g.id;
           return (
             <button
@@ -315,7 +317,7 @@ export default function SkillsSection({ skills: input }: { skills: SkillInfo[] }
       {/* Cards */}
       <motion.div
         layout
-        className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-4"
+        className="mt-6 grid grid-cols-1 gap-4 min-[480px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
       >
         <AnimatePresence mode="popLayout">
           {visible.map((skill, i) => (

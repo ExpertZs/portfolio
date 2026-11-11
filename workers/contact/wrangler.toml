@@ -1,0 +1,5 @@
+name = "zahidul-portfolio-contact"
+main = "index.ts"
+compatibility_date = "2026-01-01"
+workers_dev = true
+# CLIENT_ID, CLIENT_SECRET, REFRESH_TOKEN and MAIL_WORKER_SECRET are secrets.
