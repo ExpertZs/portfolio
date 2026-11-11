@@ -3,18 +3,42 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* Shared palette matched to the approved light reference. */
+  --brand-bg: 247 248 255;
+  --brand-surface: 255 255 255;
+  --brand-text: 13 20 62;
+  --brand-accent: 67 56 235;
+  --brand-button: 67 56 235;
+  --brand-violet: 126 34 206;
+  --brand-muted: 69 81 115;
+  --brand-border: 205 210 237;
+  --brand-soft: 237 235 255;
+  --brand-danger: 185 28 28;
+  --brand-highlight-start: 67 56 235;
+  --brand-highlight-end: 147 51 234;
+  --brand-button-end: 67 56 235;
+  --brand-ring: 139 92 246;
+  color-scheme: light;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.dark {
+  /* Deep navy, lavender type and violet illumination from the dark reference. */
+  --brand-bg: 8 16 31;
+  --brand-surface: 20 28 47;
+  --brand-text: 246 247 255;
+  --brand-accent: 167 155 255;
+  --brand-button: 79 70 229;
+  --brand-violet: 192 158 255;
+  --brand-muted: 196 203 224;
+  --brand-border: 61 72 99;
+  --brand-soft: 35 38 77;
+  --brand-danger: 252 165 165;
+  --brand-highlight-start: 192 132 252;
+  --brand-highlight-end: 155 140 255;
+  --brand-button-end: 124 58 237;
+  --brand-ring: 167 139 250;
+  color-scheme: dark;
 }
+::selection { background: rgb(var(--brand-accent) / .22); }
 
 @layer utilities {
   .text-balance {
@@ -36,11 +60,11 @@
 }
 
 .toggle-checkbox:checked + .toggle-label {
-  background-color: #037887;
+  background-color: #4338ca;
 }
 
 .toggle-checkbox:not(:checked) + .toggle-label {
-  background-color: #037887;
+  background-color: #4338ca;
 }
 
 .tech-grid {
@@ -60,12 +84,12 @@
   font-family: "Space Mono", "Courier New", monospace;
   letter-spacing: 0.4em;
   animation: techFloat 14s ease-in-out infinite;
-  text-shadow: 0 0 6px rgba(14, 165, 233, 0.35);
+  text-shadow: 0 0 6px rgba(99, 102, 241, 0.35);
 }
 
 .tech-pulse {
   animation: techPulse 5s ease-in-out infinite;
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.5);
 }
 
 @keyframes techGridMove {
@@ -125,4 +149,36 @@
   }
 }
 
-html{scroll-behavior:smooth;scroll-padding-top:110px}button,a,input,textarea{touch-action:manipulation}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #06b6d4;outline-offset:4px}button:disabled{cursor:not-allowed} @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+html{scroll-behavior:smooth;scroll-padding-top:110px}button,a,input,textarea{touch-action:manipulation}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid rgb(var(--brand-accent));outline-offset:4px}button:disabled{cursor:not-allowed} @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Keep decorative gradients out of body copy and small control labels. */
+@layer components {
+  .brand-highlight {
+    color: rgb(var(--brand-accent));
+    background-image: linear-gradient(105deg, rgb(var(--brand-highlight-start)), rgb(var(--brand-highlight-end)));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .brand-action {
+    color: #fff;
+    background-color: rgb(var(--brand-button));
+    background-image: linear-gradient(110deg, rgb(var(--brand-button)), rgb(var(--brand-button-end)));
+    transition: filter 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  }
+  .brand-action:hover { filter: brightness(1.05); }
+  .brand-outline {
+    color: rgb(var(--brand-text));
+    border-color: rgb(var(--brand-accent));
+    background-color: transparent;
+  }
+  .brand-outline:hover { background-color: rgb(var(--brand-soft)); }
+  .brand-panel { background-color: rgb(var(--brand-soft)); }
+  .portrait-glow {
+    background: radial-gradient(circle, rgb(var(--brand-ring) / .26), rgb(var(--brand-ring) / .1) 55%, transparent 72%);
+  }
+  .portrait-ring { border-color: rgb(var(--brand-ring) / .65); }
+}
+@media (forced-colors: active) {
+  .brand-highlight { background: none; -webkit-text-fill-color: currentColor; }
+}

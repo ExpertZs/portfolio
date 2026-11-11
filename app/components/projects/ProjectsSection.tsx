@@ -37,23 +37,23 @@ const TYPES: Record<
   ai: {
     label: "AI",
     icon: <MdAutoAwesome />,
-    tile: "from-violet-500 to-fuchsia-500",
-    glow: "168,85,247",
-    button: "from-violet-600 to-fuchsia-500",
+    tile: "from-brand-button to-brand-button-end",
+    glow: "99,102,241",
+    button: "from-brand-button to-brand-button-end",
   },
   web: {
     label: "Web",
     icon: <MdOutlineCode />,
-    tile: "from-cyan-500 to-blue-500",
-    glow: "6,182,212",
-    button: "from-cyan-600 to-blue-500",
+    tile: "from-brand-button to-brand-button-end",
+    glow: "99,102,241",
+    button: "from-brand-button to-brand-button-end",
   },
   mobile: {
     label: "Mobile",
     icon: <MdPhoneIphone />,
-    tile: "from-amber-500 to-orange-500",
-    glow: "245,158,11",
-    button: "from-amber-500 to-orange-500",
+    tile: "from-brand-button to-brand-button-end",
+    glow: "99,102,241",
+    button: "from-brand-button to-brand-button-end",
   },
 };
 
@@ -95,22 +95,22 @@ function Pills<T extends string>({
             type="button"
             aria-pressed={selected}
             onClick={() => onChange(item.id)}
-            className="relative rounded-full px-4 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:text-cyan-700 dark:text-gray-300 dark:hover:text-cyan-200"
+            className="relative rounded-full px-4 py-1.5 text-sm font-medium text-brand-muted transition-colors hover:text-brand-accent "
           >
             {selected ? (
               <motion.span
                 layoutId={layoutId}
-                className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-600 to-teal-500 shadow-lg shadow-cyan-500/30"
+                className="absolute inset-0 rounded-full brand-action shadow-lg shadow-indigo-500/30"
                 transition={{ type: "spring", stiffness: 400, damping: 32 }}
               />
             ) : (
-              <span className="absolute inset-0 rounded-full border border-black/10 dark:border-white/15" />
+              <span className="absolute inset-0 rounded-full border border-brand-border dark:border-brand-border" />
             )}
             <span className={`relative flex items-center gap-1.5 ${selected ? "text-white" : ""}`}>
               {item.label}
               <span
                 className={`rounded-full px-1.5 text-[10px] ${
-                  selected ? "bg-white/25" : "bg-black/5 dark:bg-white/10"
+                  selected ? "bg-black/20" : "bg-brand-soft dark:bg-brand-soft"
                 }`}
               >
                 {counts[item.id] ?? 0}
@@ -154,13 +154,13 @@ function ProjectCard({
       whileHover={reduce ? undefined : { y: -6 }}
       onPointerMove={onMove}
       style={{ ["--glow" as string]: type.glow }}
-      className={`group relative flex overflow-hidden rounded-3xl border border-black/10 bg-white/70 shadow-sm backdrop-blur transition-shadow duration-300 hover:shadow-2xl hover:shadow-cyan-500/10 dark:border-white/10 dark:bg-white/[0.04] ${
+      className={`group relative flex overflow-hidden rounded-3xl border border-brand-border bg-brand-surface shadow-sm backdrop-blur transition-shadow duration-300 hover:shadow-2xl hover:shadow-indigo-500/10 dark:border-brand-border dark:bg-brand-surface ${
         featured ? "flex-col md:col-span-2 md:flex-row" : "flex-col"
       }`}
     >
       {/* Image */}
       <div
-        className={`relative overflow-hidden bg-black/5 dark:bg-white/5 ${
+        className={`relative overflow-hidden bg-brand-soft dark:bg-brand-surface ${
           featured ? "aspect-[16/10] md:aspect-auto md:w-[55%] md:min-h-[320px]" : "aspect-[16/10]"
         }`}
       >
@@ -186,15 +186,15 @@ function ProjectCard({
             {type.icon}
             {type.label}
           </span>
-          {project.isPrivate && <span className="rounded-full bg-black/60 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur">Private</span>}
+          {project.isPrivate && <span className="rounded-full bg-slate-900 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur">Private</span>}
           {featured && (
-            <span className="flex items-center gap-1 rounded-full bg-black/60 px-2.5 py-1 text-[11px] font-semibold text-amber-300 backdrop-blur">
+            <span className="flex items-center gap-1 rounded-full bg-slate-900 px-2.5 py-1 text-[11px] font-semibold text-amber-300 backdrop-blur">
               <MdStar /> Featured
             </span>
           )}
         </div>
         {project.category === "professional" && (
-          <span className="absolute bottom-3 left-3 flex items-center gap-1 rounded-full bg-black/60 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur">
+          <span className="absolute bottom-3 left-3 flex items-center gap-1 rounded-full bg-slate-900 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur">
             <MdWorkOutline /> Professional
           </span>
         )}
@@ -213,13 +213,13 @@ function ProjectCard({
       {/* Body */}
       <div className={`relative flex flex-1 flex-col p-5 md:p-6 ${featured ? "md:justify-center" : ""}`}>
         <h3
-          className={`font-poppins font-semibold text-gray-900 dark:text-white ${
+          className={`font-poppins font-semibold text-brand-text ${
             featured ? "text-2xl md:text-3xl" : "text-lg md:text-xl"
           }`}
         >
           {project.project_title}
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-gray-600 dark:text-gray-400 md:text-[15px]">
+        <p className="mt-2 text-sm leading-relaxed text-brand-muted md:text-[15px]">
           {project.project_details}
         </p>
 
@@ -227,13 +227,13 @@ function ProjectCard({
           {shownStack.map((tech) => (
             <span
               key={tech}
-              className="rounded-full bg-black/5 px-2.5 py-0.5 text-[11px] font-medium text-gray-700 dark:bg-white/10 dark:text-gray-300"
+              className="rounded-full bg-brand-soft px-2.5 py-0.5 text-[11px] font-medium text-brand-muted dark:bg-brand-soft "
             >
               {tech}
             </span>
           ))}
           {extra > 0 && (
-            <span className="rounded-full px-2 py-0.5 text-[11px] text-gray-500">+{extra}</span>
+            <span className="rounded-full px-2 py-0.5 text-[11px] text-brand-muted">+{extra}</span>
           )}
         </div>
 
@@ -248,14 +248,14 @@ function ProjectCard({
               Live demo <MdArrowOutward className="text-sm" />
             </a>
           )}
-          {!project.live_link && <span className="text-xs text-gray-500 dark:text-gray-400">{project.isPrivate ? "Private project" : project.demoUnavailable ? "Demo currently unavailable" : "Public link not provided"}</span>}
-          {project.illustrated && <span className="text-[10px] text-gray-500">Illustrated cover</span>}
+          {!project.live_link && <span className="text-xs text-brand-muted ">{project.isPrivate ? "Private project" : project.demoUnavailable ? "Demo currently unavailable" : "Public link not provided"}</span>}
+          {project.illustrated && <span className="text-[10px] text-brand-muted">Illustrated cover</span>}
           {project.github_link && (
             <a
               href={project.github_link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 rounded-full border border-black/10 px-3.5 py-1.5 text-xs font-medium text-gray-700 transition hover:border-cyan-500 hover:text-cyan-700 dark:border-white/15 dark:text-gray-300 dark:hover:text-cyan-300"
+              className="flex items-center gap-1.5 rounded-full border border-brand-border px-3.5 py-1.5 text-xs font-medium text-brand-muted transition hover:border-brand-accent hover:text-brand-accent dark:border-brand-border "
             >
               <FaGithub /> Code
             </a>
@@ -267,9 +267,9 @@ function ProjectCard({
                 `Tell me about the "${project.project_title}" project: what it does, the stack, and what Zahidul built.`
               )
             }
-            className="flex items-center gap-1 rounded-full border border-black/10 px-3.5 py-1.5 text-xs font-medium text-gray-700 transition hover:border-cyan-500 hover:text-cyan-700 dark:border-white/15 dark:text-gray-300 dark:hover:text-cyan-300"
+            className="flex items-center gap-1 rounded-full border border-brand-border px-3.5 py-1.5 text-xs font-medium text-brand-muted transition hover:border-brand-accent hover:text-brand-accent dark:border-brand-border "
           >
-            <MdAutoAwesome className="text-sm text-cyan-500" /> Ask AI
+            <MdAutoAwesome className="text-sm text-brand-accent" /> Ask AI
           </button>
         </div>
       </div>
@@ -332,20 +332,20 @@ export default function ProjectsSection({
         transition={{ duration: 0.5 }}
         className="text-center"
       >
-        <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-xs font-medium uppercase tracking-widest text-cyan-700 dark:text-cyan-300">
-          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-500" />
+        <span className="inline-flex items-center gap-2 rounded-full border border-brand-border bg-brand-soft px-3 py-1 text-xs font-medium uppercase tracking-widest text-brand-accent ">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-indigo-500" />
           Portfolio
         </span>
         <Title
           id="projects-heading"
-          className="mt-4 font-poppins text-3xl font-bold text-gray-900 dark:text-white md:text-4xl lg:text-5xl"
+          className="mt-4 font-poppins text-3xl font-bold text-brand-text md:text-4xl lg:text-5xl"
         >
           Selected{" "}
-          <span className="bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400 bg-clip-text text-transparent">
+          <span className="brand-highlight">
             work
           </span>
         </Title>
-        <p className="mx-auto mt-3 max-w-2xl text-sm text-gray-600 dark:text-gray-400 md:text-base">
+        <p className="mx-auto mt-3 max-w-2xl text-sm text-brand-muted md:text-base">
           Production websites, AI products and shared professional work. Open any
           project, or ask the AI how it was made.
         </p>
@@ -387,7 +387,7 @@ export default function ProjectsSection({
       </motion.div>
 
       {visible.length === 0 && (
-        <p className="mt-8 text-center text-gray-600 dark:text-gray-400">
+        <p className="mt-8 text-center text-brand-muted ">
           No projects match these filters yet.
         </p>
       )}
@@ -396,7 +396,7 @@ export default function ProjectsSection({
         <div className="mt-8 flex justify-center">
           <Link
             href="/projects"
-            className="group flex items-center gap-2 rounded-full border border-cyan-500/40 px-6 py-2 text-sm font-medium text-cyan-700 transition hover:bg-cyan-500/10 dark:text-cyan-300"
+            className="group flex items-center gap-2 rounded-full border border-brand-border px-6 py-2 text-sm font-medium text-brand-accent transition hover:bg-brand-soft "
           >
             View all {filtered.length} projects
             <MdArrowOutward className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -410,24 +410,24 @@ export default function ProjectsSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mt-16 overflow-hidden rounded-3xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/15 via-teal-500/10 to-emerald-500/15 p-8 text-center md:p-12"
+          className="mt-16 overflow-hidden rounded-3xl border border-brand-border brand-panel p-8 text-center md:p-12"
         >
-          <h2 className="font-poppins text-2xl font-bold text-gray-900 dark:text-white md:text-4xl">
+          <h2 className="font-poppins text-2xl font-bold text-brand-text md:text-4xl">
             Like what you see?
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm text-gray-700 dark:text-gray-300 md:text-base">
+          <p className="mx-auto mt-3 max-w-xl text-sm text-brand-muted md:text-base">
             Let&apos;s talk about what I can build for you.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/contact"
-              className="rounded-full bg-gradient-to-r from-cyan-600 to-teal-500 px-6 py-2.5 font-medium text-white shadow-lg shadow-cyan-500/30 transition hover:shadow-xl"
+              className="rounded-full brand-action px-6 py-2.5 font-medium text-white shadow-lg shadow-indigo-500/30 transition hover:shadow-xl"
             >
               Contact me
             </Link>
             <Link
               href="/match"
-              className="flex items-center gap-2 rounded-full border border-cyan-500/50 px-6 py-2.5 font-medium text-cyan-700 transition hover:bg-cyan-500/10 dark:text-cyan-200"
+              className="flex items-center gap-2 rounded-full border border-brand-border px-6 py-2.5 font-medium text-brand-accent transition hover:bg-brand-soft "
             >
               <MdAutoAwesome /> Try the AI job match
             </Link>

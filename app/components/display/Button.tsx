@@ -57,12 +57,12 @@ function Button(props: Props) {
     >
       {theme === "secondary" && (
         <div
-          className={`rounded-xl md:rounded-full bg-gradient-to-br from-cyan-500 to-teal-700 hover:bg-slate-800 text-primary dark:text-white ${
+          className={`rounded-xl md:rounded-full brand-action hover:brightness-110 text-white ${
             isWidthFull ? "flex w-full" : "inline-flex"
           } items-center justify-center px-[2px] py-[2px] md:px-1 md:py-1`}
         >
           <span
-            className={`bg-white dark:bg-black dark:hover:bg-black rounded-xl md:rounded-full px-5 py-1 md:py-2 flex flex-col justify-center text-center ${
+            className={`bg-brand-surface text-brand-accent hover:bg-brand-soft rounded-xl md:rounded-full px-5 py-1 md:py-2 flex flex-col justify-center text-center ${
               isWidthFull ? "w-full" : ""
             }`}
           >
@@ -73,7 +73,7 @@ function Button(props: Props) {
 
       {theme === "primary" && (
         <div
-          className={`rounded-xl md:rounded-full bg-gradient-to-br from-cyan-500 to-teal-700 hover:bg-slate-200 text-white ${
+          className={`rounded-xl md:rounded-full brand-action hover:brightness-110 text-white ${
             isWidthFull ? "flex w-full" : "inline-flex"
           } items-center justify-center px-6 py-2 md:py-3`}
         >

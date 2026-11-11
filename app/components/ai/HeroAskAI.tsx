@@ -26,7 +26,7 @@ export default function HeroAskAI() {
           e.preventDefault();
           submit(value);
         }}
-        className="flex items-center gap-2 rounded-xl border border-cyan-500/40 bg-white/70 px-3 py-2 shadow-md shadow-cyan-500/10 backdrop-blur dark:bg-black/40"
+        className="flex items-center gap-2 rounded-xl border border-brand-border bg-brand-surface px-3 py-2 shadow-md shadow-indigo-500/10 backdrop-blur dark:bg-brand-surface"
       >
         <span aria-hidden>✨</span>
         <input
@@ -35,11 +35,11 @@ export default function HeroAskAI() {
           maxLength={500}
           aria-label="Ask my AI assistant"
           placeholder="Ask my AI anything about my work…"
-          className="w-full bg-transparent text-sm text-black outline-none placeholder:text-gray-500 dark:text-white md:text-base"
+          className="w-full bg-transparent text-sm text-black outline-none placeholder:text-brand-muted dark:text-white md:text-base"
         />
         <button
           type="submit"
-          className="rounded-lg bg-primary_dark px-3 py-1 text-sm text-white hover:bg-cyan-700"
+          className="rounded-lg brand-action px-3 py-1 text-sm text-white hover:brightness-105"
         >
           Ask
         </button>
@@ -50,7 +50,7 @@ export default function HeroAskAI() {
             key={s}
             type="button"
             onClick={() => submit(s)}
-            className="rounded-full border border-cyan-500/40 px-3 py-1 text-xs text-primary_dark hover:bg-cyan-500/10 dark:text-cyan-200"
+            className="rounded-full border border-brand-border px-3 py-1 text-xs text-brand-accent hover:bg-brand-soft "
           >
             {s}
           </button>

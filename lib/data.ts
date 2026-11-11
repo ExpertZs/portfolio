@@ -2,6 +2,8 @@ export const profile = {
  name: 'Md. Zahidul Islam', email: 'zs.engineer1@gmail.com', phone: '+8801754898514', github: 'https://github.com/ExpertZs',
  summary: 'Full-Stack Software Engineer focused on React, Next.js, and TypeScript, with 4+ years delivering web applications and collaborating with Japan-based teams. Experience spans reusable interfaces, API and database integration, Stripe payment flows, and AI-powered knowledge applications.'
 };
+export const training = [{degree:'BJET 10th Basic Japanese Language Program',institution:'University of Miyazaki & North South University',field:'',year:'Apr–Sep 2022 (online)'}];
+export const trainingSummary = training.map(item => `${item.degree} — ${item.institution} | ${item.year}`).join('\n');
 export const testingExperience = 'Worked on API and UI test automation using Vitest, Cypress, and Playwright, alongside regression checks and CI workflows.';
 export const skills: Record<string, string[]> = {
  Frontend: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Figma'],
@@ -58,5 +60,5 @@ export const skillDescriptions: Record<string, string> = {
  'Cloud & quality':'Deployment, performance investigation, and release readiness.',
  'Security & AI':'Secure access and AI-powered product features.'
 };
-export const resumeContext = JSON.stringify({profile,skills,skillExperience,testingExperience,experience,projects,education:['MSc Computer Science, Jahangirnagar University, 2019–2021, CGPA 3.60/4.00','BSc Computer Science & Engineering, Uttara University, 2015–2018, CGPA 3.88/4.00'],awards:['ITEE FE, BD-ITEC, 2022','Vice-Chancellor Award, Uttara University']});
+export const resumeContext = JSON.stringify({profile,training,skills,skillExperience,testingExperience,experience,projects,education:['MSc Computer Science, Jahangirnagar University, 2019–2021, CGPA 3.60/4.00','BSc Computer Science & Engineering, Uttara University, 2015–2018, CGPA 3.88/4.00'],awards:['ITEE FE, BD-ITEC, 2022','Vice-Chancellor Award, Uttara University']});
 export const sections = ['about','skills','experience','projects','services','blogs','match','ask','contact'] as const;

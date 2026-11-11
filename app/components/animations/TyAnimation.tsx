@@ -6,11 +6,11 @@ import { TypeAnimation } from "react-type-animation";
 
 const TyAnimation = () => {
   const reduce = useReducedMotion();
-  if (reduce) return <span>Md. Zahidul Islam</span>;
+  if (reduce) return <span>Full-Stack Software Engineer</span>;
   return (
     <TypeAnimation
       sequence={[
-        "Md. Zahidul Islam",
+        "Full-Stack Software Engineer",
         1500,
         "Web Developer",
         1000,

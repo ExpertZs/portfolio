@@ -97,7 +97,7 @@ function Highlight({ text, query }: { text: string; query: string }) {
         i % 2 === 1 ? (
           <mark
             key={i}
-            className="rounded-sm bg-cyan-400/20 text-cyan-700 dark:text-cyan-200"
+            className="rounded-sm bg-indigo-400/20 text-brand-accent "
           >
             {part}
           </mark>
@@ -110,7 +110,7 @@ function Highlight({ text, query }: { text: string; query: string }) {
 }
 
 const Kbd = ({ children }: { children: ReactNode }) => (
-  <kbd className="rounded-md border border-black/10 bg-black/5 px-1.5 py-0.5 font-sans text-[10px] font-medium text-gray-600 dark:border-white/10 dark:bg-white/10 dark:text-gray-300">
+  <kbd className="rounded-md border border-brand-border bg-brand-soft px-1.5 py-0.5 font-sans text-[10px] font-medium text-brand-muted dark:border-brand-border dark:bg-brand-soft ">
     {children}
   </kbd>
 );
@@ -415,11 +415,11 @@ export default function SearchPalette() {
           <motion.div
             {...motionProps}
             onMouseDown={(e) => e.stopPropagation()}
-            className="flex max-h-[78vh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl border border-black/10 bg-white/95 shadow-2xl shadow-cyan-900/20 backdrop-blur-xl dark:border-white/10 dark:bg-[#0b1222]/95"
+            className="flex max-h-[78vh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl border border-brand-border bg-brand-surface shadow-2xl shadow-indigo-900/20 backdrop-blur-xl dark:border-brand-border dark:bg-brand-surface"
           >
             {/* Input */}
-            <div className="flex items-center gap-3 border-b border-black/10 px-4 dark:border-white/10">
-              <MdSearch className="shrink-0 text-xl text-gray-500" aria-hidden />
+            <div className="flex items-center gap-3 border-b border-brand-border px-4 dark:border-brand-border">
+              <MdSearch className="shrink-0 text-xl text-brand-muted" aria-hidden />
               <input
                 ref={inputRef}
                 value={query}
@@ -433,7 +433,7 @@ export default function SearchPalette() {
                 autoComplete="off"
                 spellCheck={false}
                 placeholder="Search projects, blogs, skills… or ask anything"
-                className="h-14 w-full bg-transparent text-base text-black outline-none placeholder:text-gray-500 dark:text-white"
+                className="h-14 w-full bg-transparent text-base text-black outline-none placeholder:text-brand-muted dark:text-white"
               />
               {loading ? (
                 <Spinner size="xs" label="Searching" className="shrink-0" />
@@ -445,7 +445,7 @@ export default function SearchPalette() {
                     inputRef.current?.focus();
                   }}
                   aria-label="Clear search"
-                  className="shrink-0 rounded-md p-1 text-gray-500 hover:bg-black/5 dark:hover:bg-white/10"
+                  className="shrink-0 rounded-md p-1 text-brand-muted hover:bg-brand-soft dark:hover:bg-brand-soft"
                 >
                   <MdClose />
                 </button>
@@ -456,7 +456,7 @@ export default function SearchPalette() {
 
             {/* Filters */}
             {searching && (
-              <div className="flex items-center gap-1.5 border-b border-black/10 px-3 py-2 dark:border-white/10">
+              <div className="flex items-center gap-1.5 border-b border-brand-border px-3 py-2 dark:border-brand-border">
                 {FILTERS.map((f) => (
                   <button
                     key={f.id}
@@ -467,14 +467,14 @@ export default function SearchPalette() {
                     }}
                     className={`rounded-full px-3 py-1 text-xs font-medium transition ${
                       filter === f.id
-                        ? "bg-cyan-600 text-white"
-                        : "text-gray-600 hover:bg-black/5 dark:text-gray-300 dark:hover:bg-white/10"
+                        ? "brand-action text-white"
+                        : "text-brand-muted hover:bg-brand-soft dark:hover:bg-brand-soft"
                     }`}
                   >
                     {f.label}
                   </button>
                 ))}
-                <span className="ml-auto hidden text-[11px] text-gray-500 md:inline">
+                <span className="ml-auto hidden text-[11px] text-brand-muted md:inline">
                   <Kbd>Tab</Kbd> switch filter
                 </span>
               </div>
@@ -491,10 +491,10 @@ export default function SearchPalette() {
                 <div className="space-y-2 p-2" aria-hidden>
                   {[0, 1, 2].map((i) => (
                     <div key={i} className="flex animate-pulse gap-3">
-                      <div className="h-9 w-9 rounded-lg bg-black/10 dark:bg-white/10" />
+                      <div className="h-9 w-9 rounded-lg bg-black/10 dark:bg-brand-soft" />
                       <div className="flex-1 space-y-2">
-                        <div className="h-3 w-1/3 rounded bg-black/10 dark:bg-white/10" />
-                        <div className="h-3 w-3/4 rounded bg-black/5 dark:bg-white/5" />
+                        <div className="h-3 w-1/3 rounded bg-black/10 dark:bg-brand-soft" />
+                        <div className="h-3 w-3/4 rounded bg-brand-soft dark:bg-brand-surface" />
                       </div>
                     </div>
                   ))}
@@ -508,13 +508,13 @@ export default function SearchPalette() {
                 return (
                   <div key={row.key}>
                     {showHeader && (
-                      <div className="flex items-center justify-between px-3 pb-1 pt-3 text-[11px] font-semibold uppercase tracking-wider text-gray-500">
+                      <div className="flex items-center justify-between px-3 pb-1 pt-3 text-[11px] font-semibold uppercase tracking-wider text-brand-muted">
                         <span>{row.group}</span>
                         {row.group === "Recent" && (
                           <button
                             type="button"
                             onClick={clearRecent}
-                            className="font-medium normal-case tracking-normal text-gray-500 hover:text-red-500"
+                            className="font-medium normal-case tracking-normal text-brand-muted hover:text-brand-danger"
                           >
                             Clear
                           </button>
@@ -528,37 +528,37 @@ export default function SearchPalette() {
                       onMouseMove={() => selected || setActive(i)}
                       onClick={row.run}
                       className={`group flex cursor-pointer items-center gap-3 rounded-xl px-3 py-2 transition-colors ${
-                        selected ? "bg-cyan-500/15" : ""
+                        selected ? "bg-brand-soft" : ""
                       }`}
                     >
                       <span
                         className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-lg ${
                           selected
-                            ? "bg-cyan-600 text-white"
-                            : "bg-black/5 text-gray-600 dark:bg-white/10 dark:text-gray-300"
+                            ? "brand-action text-white"
+                            : "bg-brand-soft text-brand-muted dark:bg-brand-soft "
                         }`}
                       >
                         {row.icon}
                       </span>
                       <span className="min-w-0 flex-1">
                         <span className="flex items-center gap-2">
-                          <span className="truncate text-sm font-medium text-black dark:text-white">
+                          <span className="truncate text-sm font-medium text-brand-text">
                             <Highlight text={row.title} query={searching && !row.plain ? q : ""} />
                           </span>
                         </span>
                         {row.subtitle && (
-                          <span className="mt-0.5 block truncate text-xs text-gray-600 dark:text-gray-400">
+                          <span className="mt-0.5 block truncate text-xs text-brand-muted ">
                             <Highlight text={row.subtitle} query={searching && !row.plain ? q : ""} />
                           </span>
                         )}
                         {row.meta && (
-                          <span className="mt-0.5 block truncate text-[11px] text-gray-500">
+                          <span className="mt-0.5 block truncate text-[11px] text-brand-muted">
                             {row.meta}
                           </span>
                         )}
                       </span>
                       {selected && row.hint && (
-                        <span className="hidden shrink-0 items-center gap-1 text-[11px] text-gray-500 md:flex">
+                        <span className="hidden shrink-0 items-center gap-1 text-[11px] text-brand-muted md:flex">
                           {row.hint}
                           {row.external ? <MdArrowOutward /> : <Kbd>↵</Kbd>}
                         </span>
@@ -570,12 +570,12 @@ export default function SearchPalette() {
 
               {searching && !loading && results.length === 0 && (
                 <div className="px-4 py-6 text-center">
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                  <p className="text-sm text-brand-muted ">
                     {failed
                       ? "Search is unavailable right now."
                       : `No matches for “${q}”.`}
                   </p>
-                  <p className="mt-1 text-xs text-gray-500">
+                  <p className="mt-1 text-xs text-brand-muted">
                     Try different words, or ask the AI below.
                   </p>
                 </div>
@@ -583,9 +583,9 @@ export default function SearchPalette() {
             </div>
 
             {/* Footer */}
-            <div className="flex items-center justify-between gap-3 border-t border-black/10 px-4 py-2 text-[11px] text-gray-500 dark:border-white/10">
+            <div className="flex items-center justify-between gap-3 border-t border-brand-border px-4 py-2 text-[11px] text-brand-muted dark:border-brand-border">
               <span className="flex items-center gap-1">
-                <MdAutoAwesome className="text-cyan-500" /> AI-powered semantic search
+                <MdAutoAwesome className="text-brand-accent" /> AI-powered semantic search
               </span>
               <span className="hidden items-center gap-3 md:flex">
                 <span className="flex items-center gap-1">

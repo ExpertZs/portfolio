@@ -13,10 +13,10 @@ import type { SocialLink } from "@/types/content";
 const ICONS: Record<string, { Icon: React.ComponentType<{ size?: number }>; className: string }> = {
   facebook: { Icon: FaFacebook, className: "text-[#1877F2]" },
   instagram: { Icon: FaInstagram, className: "text-[#E1306C]" },
-  github: { Icon: FaGithub, className: "dark:text-white text-gray-600" },
+  github: { Icon: FaGithub, className: "dark:text-white text-brand-muted" },
   linkedin: { Icon: FaLinkedin, className: "text-[#0077B5]" },
   twitter: { Icon: FaTwitter, className: "text-[#1DA1F2]" },
-  x: { Icon: FaTwitter, className: "dark:text-white text-gray-600" },
+  x: { Icon: FaTwitter, className: "dark:text-white text-brand-muted" },
   youtube: { Icon: FaYoutube, className: "text-[#FF0000]" },
 };
 
@@ -38,7 +38,7 @@ export default function SocialIcons({
         .map((s) => {
           const entry = ICONS[s.platform.toLowerCase()] ?? {
             Icon: FaGlobe,
-            className: "dark:text-white text-gray-600",
+            className: "dark:text-white text-brand-muted",
           };
           return (
             <a

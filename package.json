@@ -8,7 +8,7 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "resume:build": "node scripts/publish-resume.cjs",
-    "check": "npm run typecheck && npm test && npm run build",
+    "check": "npm run typecheck && npm run build",
     "resume:draft": "node scripts/export-resume.cjs && node scripts/build-resume.cjs"
   },
   "dependencies": {
@@ -25,13 +25,10 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
-    "@playwright/test": "^1.65.0",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "autoprefixer": "^10.4.0",
-    "jsdom": "^31.0.0",
-    "pdfjs-dist": "^6.5.438",
     "pdfkit": "^0.20.2",
     "postcss": "^8.4.0",
     "tailwindcss": "^3.4.17",

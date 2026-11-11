@@ -29,8 +29,6 @@ export default function AboutHero({
   stats: Stat[];
 }) {
   const reduce = useReducedMotion();
-  const first = about.name.split(" ").slice(0, 2).join(" ");
-  const rest = about.name.split(" ").slice(2).join(" ");
 
   return (
     <section
@@ -45,11 +43,11 @@ export default function AboutHero({
       >
         <motion.span
           variants={item}
-          className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-700 dark:text-emerald-300"
+          className="inline-flex items-center gap-2 rounded-full border border-brand-border bg-brand-soft px-3 py-1 text-xs font-medium text-brand-accent "
         >
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-500" />
           </span>
           {"Full Stack Software Engineer"}
         </motion.span>
@@ -57,22 +55,19 @@ export default function AboutHero({
         <motion.h1
           id="about-heading"
           variants={item}
-          className="mt-5 font-poppins text-4xl font-bold leading-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
+          className="mt-5 font-poppins text-4xl font-bold leading-tight text-brand-text md:text-5xl lg:text-6xl"
         >
-          <span className="text-gray-500 dark:text-gray-400">Hi, I&apos;m </span>
-          <span className="bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400 bg-clip-text text-transparent">
-            {first}
-          </span>
-          {rest && <span> {rest}</span>}
+          <span className="text-brand-muted ">Hi, I&apos;m </span>
+          <span className="brand-highlight">{about.name}</span>
         </motion.h1>
 
-        <motion.p variants={item} className="mt-2 text-lg font-medium text-cyan-700 dark:text-cyan-300">
+        <motion.p variants={item} className="mt-2 text-lg font-medium text-brand-accent ">
           {about.personal.occupation}
         </motion.p>
 
         <motion.p
           variants={item}
-          className="mt-4 max-w-2xl text-base leading-relaxed text-gray-700 dark:text-gray-300 md:text-lg"
+          className="mt-4 max-w-2xl text-base leading-relaxed text-brand-muted md:text-lg"
         >
           {about.summary}
         </motion.p>
@@ -80,7 +75,7 @@ export default function AboutHero({
         <motion.div variants={item} className="mt-7 flex flex-wrap items-center gap-3">
           <Link
             href="/contact"
-            className="group flex items-center gap-1.5 rounded-full bg-gradient-to-r from-cyan-600 to-teal-500 px-6 py-2.5 font-medium text-white shadow-lg shadow-cyan-500/30 transition hover:shadow-xl"
+            className="group flex items-center gap-1.5 rounded-full brand-action px-6 py-2.5 font-medium text-white shadow-lg shadow-indigo-500/30 transition hover:shadow-xl"
           >
             Get in touch
             <MdArrowOutward className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -88,16 +83,16 @@ export default function AboutHero({
           <a
             href="/Zahidul_Islam_Resume.pdf"
             download="Md. Zahidul Islam Resume.pdf"
-            className="flex items-center gap-1.5 rounded-full border border-cyan-500/50 px-5 py-2.5 font-medium text-cyan-700 transition hover:bg-cyan-500/10 dark:text-cyan-200"
+            className="flex items-center gap-1.5 rounded-full border border-brand-border px-5 py-2.5 font-medium text-brand-accent transition hover:bg-brand-soft "
           >
             <MdDownload /> Download CV
           </a>
           <button
             type="button"
             onClick={() => openChat("Give me a quick introduction to you and your strongest skills.")}
-            className="flex items-center gap-1.5 rounded-full px-4 py-2.5 text-sm font-medium text-gray-700 transition hover:text-cyan-600 dark:text-gray-300 dark:hover:text-cyan-300"
+            className="flex items-center gap-1.5 rounded-full px-4 py-2.5 text-sm font-medium text-brand-muted transition hover:text-brand-accent "
           >
-            <MdAutoAwesome className="text-cyan-500" /> Ask my AI
+            <MdAutoAwesome className="text-brand-accent" /> Ask my AI
           </button>
         </motion.div>
 
@@ -119,9 +114,9 @@ export default function AboutHero({
             aria-hidden
             animate={reduce ? undefined : { rotate: 360 }}
             transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
-            className="absolute -inset-2 rounded-full bg-[conic-gradient(from_0deg,#06b6d4,#34d399,#6366f1,#06b6d4)] opacity-80 blur-[2px]"
+            className="absolute -inset-2 rounded-full bg-[conic-gradient(from_0deg,#6366f1,#a78bfa,#6366f1,#6366f1)] opacity-80 blur-[2px]"
           />
-          <div className="absolute -inset-6 rounded-full bg-cyan-500/20 blur-3xl" aria-hidden />
+          <div className="absolute -inset-6 rounded-full bg-indigo-500/20 blur-3xl" aria-hidden />
           <div className="relative h-[240px] w-[240px] overflow-hidden rounded-full border-4 border-white/80 bg-slate-900 dark:border-slate-900 md:h-[280px] md:w-[280px]">
             <SmartImage
               src="/images/zahidul_c.png"
@@ -139,12 +134,12 @@ export default function AboutHero({
               key={s.label}
               animate={reduce ? undefined : { y: [0, i ? 7 : -7, 0] }}
               transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut" }}
-              className={`absolute rounded-2xl border border-black/10 bg-white/90 px-4 py-2 shadow-xl backdrop-blur dark:border-white/10 dark:bg-slate-900/90 ${
+              className={`absolute rounded-2xl border border-brand-border bg-brand-surface px-4 py-2 shadow-xl backdrop-blur dark:border-brand-border dark:bg-slate-900/90 ${
                 i === 0 ? "-left-6 top-6 md:-left-12" : "-right-4 bottom-8 md:-right-10"
               }`}
             >
-              <div className="font-poppins text-xl font-bold text-cyan-600 dark:text-cyan-300">{s.value}</div>
-              <div className="text-[11px] text-gray-600 dark:text-gray-400">{s.label}</div>
+              <div className="font-poppins text-xl font-bold text-brand-accent ">{s.value}</div>
+              <div className="text-[11px] text-brand-muted ">{s.label}</div>
             </motion.div>
           ))}
         </motion.div>

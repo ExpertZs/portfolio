@@ -47,14 +47,14 @@ const TOPICS = [
 ] as const;
 
 const fieldCls = (invalid: boolean) =>
-  `peer w-full rounded-xl border bg-white/80 px-4 pb-2 pt-6 text-[15px] text-gray-900 outline-none transition placeholder-transparent focus:ring-4 dark:bg-black/30 dark:text-white ${
+  `peer w-full rounded-xl border bg-brand-surface px-4 pb-2 pt-6 text-[15px] text-brand-text outline-none transition placeholder-transparent focus:ring-4 dark:bg-brand-surface dark:text-white ${
     invalid
       ? "border-red-500 focus:border-red-500 focus:ring-red-500/20"
-      : "border-black/10 focus:border-cyan-500 focus:ring-cyan-500/20 dark:border-white/15"
+      : "border-brand-border focus:border-brand-accent focus:ring-indigo-500/20 dark:border-brand-border"
   }`;
 
 const labelCls =
-  "pointer-events-none absolute left-4 top-2 text-[11px] font-medium uppercase tracking-wider text-gray-500 transition-all peer-placeholder-shown:top-[17px] peer-placeholder-shown:text-sm peer-placeholder-shown:normal-case peer-placeholder-shown:tracking-normal peer-focus:top-2 peer-focus:text-[11px] peer-focus:uppercase peer-focus:tracking-wider peer-focus:text-cyan-600 dark:text-gray-400";
+  "pointer-events-none absolute left-4 top-2 text-[11px] font-medium uppercase tracking-wider text-brand-muted transition-all peer-placeholder-shown:top-[17px] peer-placeholder-shown:text-sm peer-placeholder-shown:normal-case peer-placeholder-shown:tracking-normal peer-focus:top-2 peer-focus:text-[11px] peer-focus:uppercase peer-focus:tracking-wider peer-focus:text-brand-accent ";
 
 export default function ContactForm() {
   const reduce = useReducedMotion();
@@ -121,8 +121,8 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-black/10 bg-white/70 p-5 shadow-xl shadow-cyan-900/5 backdrop-blur dark:border-white/10 dark:bg-white/[0.04] md:p-8">
-      <div aria-hidden className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-cyan-400/15 blur-3xl" />
+    <div className="relative overflow-hidden rounded-3xl border border-brand-border bg-brand-surface p-5 shadow-xl shadow-indigo-900/5 backdrop-blur dark:border-brand-border dark:bg-brand-surface md:p-8">
+      <div aria-hidden className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-indigo-400/15 blur-3xl" />
 
       <AnimatePresence mode="wait" initial={false}>
         {sent ? (
@@ -146,22 +146,22 @@ export default function ContactForm() {
                 initial={{ pathLength: reduce ? 1 : 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.45, delay: 0.5 }}
               />
             </svg>
-            <h3 className="mt-5 font-poppins text-2xl font-bold text-gray-900 dark:text-white">{sent.draft ? "Email draft ready" : "Message sent!"}</h3>
-            <p className="mt-2 max-w-md text-gray-700 dark:text-gray-300">
+            <h3 className="mt-5 font-poppins text-2xl font-bold text-brand-text">{sent.draft ? "Email draft ready" : "Message sent!"}</h3>
+            <p className="mt-2 max-w-md text-brand-muted ">
               {sent.message}
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
-              {sent.draft && <a href={sent.draft} className="rounded-full bg-cyan-600 px-5 py-2 text-white">Open email draft ↗</a>}
+              {sent.draft && <a href={sent.draft} className="rounded-full brand-action px-5 py-2 text-white">Open email draft ↗</a>}
               <button
                 type="button"
                 onClick={() => setSent(null)}
-                className="rounded-full border border-cyan-500/50 px-5 py-2 text-sm font-medium text-cyan-700 transition hover:bg-cyan-500/10 dark:text-cyan-200"
+                className="rounded-full border border-brand-border px-5 py-2 text-sm font-medium text-brand-accent transition hover:bg-brand-soft "
               >
                 Send another message
               </button>
               <Link
                 href="/projects"
-                className="rounded-full bg-gradient-to-r from-cyan-600 to-teal-500 px-5 py-2 text-sm font-medium text-white shadow-lg shadow-cyan-500/30"
+                className="rounded-full brand-action px-5 py-2 text-sm font-medium text-white shadow-lg shadow-indigo-500/30"
               >
                 Browse my projects
               </Link>
@@ -179,8 +179,8 @@ export default function ContactForm() {
             aria-label="Contact form"
           >
             <div>
-              <h2 className="font-poppins text-xl font-bold text-gray-900 dark:text-white md:text-2xl">Send me a message</h2>
-              <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">What brings you here? Pick one to get started faster.</p>
+              <h2 className="font-poppins text-xl font-bold text-brand-text md:text-2xl">Send me a message</h2>
+              <p className="mt-1 text-sm text-brand-muted ">What brings you here? Pick one to get started faster.</p>
               <div className="mt-3 flex flex-wrap gap-2" role="group" aria-label="Topic">
                 {TOPICS.map((t) => (
                   <button
@@ -190,8 +190,8 @@ export default function ContactForm() {
                     onClick={() => pickTopic(t.id)}
                     className={`rounded-full border px-3.5 py-1.5 text-sm transition ${
                       topic === t.id
-                        ? "border-transparent bg-gradient-to-r from-cyan-600 to-teal-500 text-white shadow"
-                        : "border-black/10 text-gray-700 hover:border-cyan-500 hover:text-cyan-700 dark:border-white/15 dark:text-gray-300 dark:hover:text-cyan-300"
+                        ? "border-transparent brand-action text-white shadow"
+                        : "border-brand-border text-brand-muted hover:border-brand-accent hover:text-brand-accent dark:border-brand-border "
                     }`}
                   >
                     {t.label}
@@ -204,19 +204,19 @@ export default function ContactForm() {
               <div className="relative">
                 <input id="c-name" placeholder="Your name" autoComplete="name" aria-invalid={!!errors.name} {...register("name")} className={fieldCls(!!errors.name)} />
                 <label htmlFor="c-name" className={labelCls}>Your name</label>
-                {errors.name && <p className="mt-1 text-xs text-red-500" role="alert">{errors.name.message}</p>}
+                {errors.name && <p className="mt-1 text-xs text-brand-danger" role="alert">{errors.name.message}</p>}
               </div>
               <div className="relative">
                 <input id="c-email" type="email" placeholder="Your email" autoComplete="email" aria-invalid={!!errors.email} {...register("email")} className={fieldCls(!!errors.email)} />
                 <label htmlFor="c-email" className={labelCls}>Your email</label>
-                {errors.email && <p className="mt-1 text-xs text-red-500" role="alert">{errors.email.message}</p>}
+                {errors.email && <p className="mt-1 text-xs text-brand-danger" role="alert">{errors.email.message}</p>}
               </div>
             </div>
 
             <div className="relative">
               <input id="c-title" placeholder="Subject" aria-invalid={!!errors.title} {...register("title")} className={fieldCls(!!errors.title)} />
               <label htmlFor="c-title" className={labelCls}>Subject</label>
-              {errors.title && <p className="mt-1 text-xs text-red-500" role="alert">{errors.title.message}</p>}
+              {errors.title && <p className="mt-1 text-xs text-brand-danger" role="alert">{errors.title.message}</p>}
             </div>
 
             <div className="relative">
@@ -230,8 +230,8 @@ export default function ContactForm() {
               />
               <label htmlFor="c-message" className={labelCls}>Message</label>
               <div className="mt-1 flex items-start justify-between gap-3">
-                <p className="text-xs text-red-500" role="alert">{errors.message?.message}</p>
-                <span className={`shrink-0 text-xs ${message.length > 5000 ? "text-red-500" : "text-gray-400"}`}>{message.length}/5000</span>
+                <p className="text-xs text-brand-danger" role="alert">{errors.message?.message}</p>
+                <span className={`shrink-0 text-xs ${message.length > 5000 ? "text-brand-danger" : "text-brand-muted"}`}>{message.length}/5000</span>
               </div>
             </div>
 
@@ -253,7 +253,7 @@ export default function ContactForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="group flex min-w-[160px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-600 to-teal-500 px-7 py-3 font-medium text-white shadow-lg shadow-cyan-500/30 transition hover:shadow-xl disabled:opacity-70"
+                className="group flex min-w-[160px] items-center justify-center gap-2 rounded-full brand-action px-7 py-3 font-medium text-white shadow-lg shadow-indigo-500/30 transition hover:shadow-xl disabled:opacity-70"
               >
                 {isSubmitting ? (
                   <>
@@ -268,9 +268,9 @@ export default function ContactForm() {
               <button
                 type="button"
                 onClick={() => openChat("I'd like to get in touch. What should I include in my message?")}
-                className="flex items-center gap-1.5 text-sm text-gray-700 transition hover:text-cyan-600 dark:text-gray-300 dark:hover:text-cyan-300"
+                className="flex items-center gap-1.5 text-sm text-brand-muted transition hover:text-brand-accent "
               >
-                <MdAutoAwesome className="text-cyan-500" /> Not sure what to write? Ask my AI
+                <MdAutoAwesome className="text-brand-accent" /> Not sure what to write? Ask my AI
               </button>
             </div>
           </motion.form>

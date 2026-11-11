@@ -30,21 +30,21 @@ export default function AboutFacts({ about, contact }: { about: AboutInfo; conta
         {facts.map((f, i) => {
           const body = (
             <>
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-teal-500 text-xl text-white shadow">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl brand-action text-xl text-white shadow">
                 {f.icon}
               </span>
               <span className="min-w-0">
-                <span className="block text-[11px] uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                <span className="block text-[11px] uppercase tracking-wider text-brand-muted ">
                   {f.label}
                 </span>
-                <span className="block break-words text-sm font-medium text-gray-900 dark:text-white">
+                <span className="block break-words text-sm font-medium text-brand-text">
                   {f.value}
                 </span>
               </span>
             </>
           );
           const cls =
-            "flex items-center gap-3 rounded-2xl border border-black/10 bg-white/70 p-4 backdrop-blur transition hover:-translate-y-0.5 hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/10 dark:border-white/10 dark:bg-white/[0.04]";
+            "flex items-center gap-3 rounded-2xl border border-brand-border bg-brand-surface p-4 backdrop-blur transition hover:-translate-y-0.5 hover:border-brand-border hover:shadow-lg hover:shadow-indigo-500/10 dark:border-brand-border dark:bg-brand-surface";
           return (
             <motion.li
               key={f.label}

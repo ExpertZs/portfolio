@@ -21,28 +21,28 @@ export default function AboutSkills({ about, skills }: { about: AboutInfo; skill
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.55 }}
         >
-          <span className="text-xs font-medium uppercase tracking-widest text-cyan-700 dark:text-cyan-300">
+          <span className="text-xs font-medium uppercase tracking-widest text-brand-accent ">
             What I do
           </span>
           <h2
             id="skills-about-heading"
-            className="mt-2 font-poppins text-3xl font-bold text-gray-900 dark:text-white md:text-4xl"
+            className="mt-2 font-poppins text-3xl font-bold text-brand-text md:text-4xl"
           >
             My professional{" "}
-            <span className="bg-gradient-to-r from-cyan-500 to-emerald-400 bg-clip-text text-transparent">
+            <span className="brand-highlight">
               skills
             </span>
           </h2>
-          <p className="mt-4 leading-relaxed text-gray-700 dark:text-gray-300">{about.skills_summary}</p>
+          <p className="mt-4 leading-relaxed text-brand-muted ">{about.skills_summary}</p>
 
           {core.length > 0 && (
             <div className="mt-6">
-              <p className="mb-2 text-xs font-medium uppercase tracking-wider text-gray-500">Core stack</p>
+              <p className="mb-2 text-xs font-medium uppercase tracking-wider text-brand-muted">Core stack</p>
               <ul className="flex flex-wrap gap-2">
                 {core.map((s) => (
                   <li
                     key={s.id}
-                    className="flex items-center gap-2 rounded-full border border-black/10 bg-white/70 py-1 pl-1 pr-3 text-xs font-medium text-gray-800 backdrop-blur dark:border-white/10 dark:bg-white/[0.05] dark:text-gray-200"
+                    className="flex items-center gap-2 rounded-full border border-brand-border bg-brand-surface py-1 pl-1 pr-3 text-xs font-medium text-brand-text backdrop-blur dark:border-brand-border dark:bg-white/[0.05] "
                   >
                     <span className="flex h-6 w-6 items-center justify-center overflow-hidden rounded-full bg-white p-0.5">
                       <SmartImage src={s.icon} alt="" width={20} height={20} className="h-5 w-5 object-contain" />
@@ -53,7 +53,7 @@ export default function AboutSkills({ about, skills }: { about: AboutInfo; skill
               </ul>
               <Link
                 href="/#skills-heading"
-                className="mt-3 inline-block text-sm text-cyan-700 hover:underline dark:text-cyan-300"
+                className="mt-3 inline-block text-sm text-brand-accent hover:underline "
               >
                 See all skills →
               </Link>
@@ -66,14 +66,14 @@ export default function AboutSkills({ about, skills }: { about: AboutInfo; skill
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.55 }}
-          className="space-y-6 rounded-3xl border border-black/10 bg-white/70 p-6 backdrop-blur dark:border-white/10 dark:bg-white/[0.04] md:p-8"
+          className="space-y-6 rounded-3xl border border-brand-border bg-brand-surface p-6 backdrop-blur dark:border-brand-border dark:bg-brand-surface md:p-8"
         >
           {[
             ['Frontend engineering','React, Next.js, TypeScript, reusable components, and responsive implementation.'],
             ['Backend integration','REST APIs, Node.js, Prisma, and relational data workflows.'],
             ['AI-powered features','LLM integration, RAG, agent workflows, and streaming responses.'],
             ['Testing & performance','Cypress, Playwright, Lighthouse, and Core Web Vitals.']
-          ].map(([label,description]) => <div key={label}><h3 className="text-sm font-semibold text-cyan-700 dark:text-cyan-300">{label}</h3><p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{description}</p></div>)}
+          ].map(([label,description]) => <div key={label}><h3 className="text-sm font-semibold text-brand-accent ">{label}</h3><p className="mt-2 text-sm text-brand-muted ">{description}</p></div>)}
         </motion.div>
       </div>
     </section>

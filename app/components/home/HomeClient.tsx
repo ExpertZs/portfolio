@@ -46,12 +46,13 @@ const HomePage = ({ about, skills, services, projects }: HomeProps) => {
               height_width={150}
             />
             <div className="mt-4 md:mt-6 lg:mt-10 xl:mt-14 sm:col-span-12 md:col-span-7 place-self-start justify-self-start md:place-self-center md:justify-self-start">
-              <p className="mb-3 text-center text-sm font-semibold uppercase tracking-widest text-cyan-700 dark:text-cyan-300 md:text-left">React · Next.js · TypeScript</p>
-              <h1 aria-label="Zahidul Islam — Full-Stack Software Engineer" className="text-center md:text-left text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-950 dark:text-white"><span className="block text-cyan-600 dark:text-cyan-300">Hello, I’m</span><span aria-hidden="true" className="mt-3 block min-h-[2.4em]"><TyAnimation /></span><span className="sr-only">Zahidul Islam — Full-Stack Software Engineer</span></h1>
-              <p className="mt-5 mb-6 text-center md:text-left text-base md:text-lg leading-relaxed text-gray-700 dark:text-gray-300">4+ years building web applications with Japan-based teams. React and Next.js interfaces, API integration, and AI-powered product features.</p>
+              <p className="mb-3 text-center text-sm font-semibold uppercase tracking-widest text-brand-accent md:text-left">React · Next.js · TypeScript</p>
+              <h1 className="text-center md:text-left text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-brand-text"><span className="block">Hello, I’m</span><span className="mt-2 block brand-highlight">Md. Zahidul Islam</span></h1>
+              <div className="mt-3 min-h-[2.8em] text-center text-xl font-semibold text-brand-text md:text-left md:text-2xl" aria-label="Full-Stack Software Engineer"><span aria-hidden="true"><TyAnimation /></span></div>
+              <p className="mt-5 mb-6 text-center md:text-left text-base md:text-lg leading-relaxed text-brand-muted ">4+ years building web applications with Japan-based teams. React and Next.js interfaces, API integration, and AI-powered product features.</p>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                <Link href="#selected-work" className="inline-flex items-center justify-center rounded-xl md:rounded-full bg-gradient-to-br from-cyan-500 to-teal-700 px-6 py-2 md:py-3 text-[12px] md:text-[16px] text-white">View selected projects</Link>
-                <a href="/Zahidul_Islam_Resume.pdf" download="Md. Zahidul Islam Resume.pdf" className="inline-flex items-center justify-center rounded-xl md:rounded-full border-2 border-cyan-600 px-5 py-2 text-[12px] md:text-[16px] dark:bg-black bg-white">Download CV</a>
+                <Link href="#selected-work" className="inline-flex items-center justify-center rounded-xl md:rounded-full brand-action hover:brightness-110 px-6 py-2 md:py-3 text-[12px] md:text-[16px] text-white">View selected projects</Link>
+                <a href="/Zahidul_Islam_Resume.pdf" download="Md. Zahidul Islam Resume.pdf" className="inline-flex items-center justify-center rounded-xl md:rounded-full border-2 brand-outline px-5 py-2 text-[12px] md:text-[16px]">Download CV</a>
               </div>
               <HeroAskAI />
             </div>
@@ -62,8 +63,8 @@ const HomePage = ({ about, skills, services, projects }: HomeProps) => {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="relative hidden items-center justify-center self-stretch md:col-span-5 md:flex"
             >
-              <div aria-hidden className="absolute left-1/2 top-1/2 h-[75%] max-h-[420px] aspect-square -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-cyan-500/30 via-teal-400/20 to-emerald-400/30 blur-2xl" />
-              <div aria-hidden className="absolute left-1/2 top-1/2 aspect-square h-[70%] max-h-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-500/30" />
+              <div aria-hidden className="absolute left-1/2 top-1/2 h-[75%] max-h-[420px] aspect-square -translate-x-1/2 -translate-y-1/2 rounded-full portrait-glow blur-xl" />
+              <div aria-hidden className="absolute left-1/2 top-1/2 aspect-square h-[70%] max-h-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full border portrait-ring" />
               <SmartImage
                 src="/images/zahidul_f.png"
                 alt="Portrait of Zahidul"
@@ -76,10 +77,10 @@ const HomePage = ({ about, skills, services, projects }: HomeProps) => {
           </div>
 
           <div id="selected-work" className="scroll-mt-28"><ProjectsSection projects={projects.filter(p => [1,2,4].includes(p.id))} compact /></div>
-          <div className="text-center"><Link href="/projects" className="text-cyan-700 dark:text-cyan-300 underline underline-offset-4">View all projects →</Link></div>
-          <section className="mx-auto my-12 max-w-6xl rounded-2xl border border-cyan-500/20 p-6 md:p-8"><h2 className="text-2xl font-bold">Production experience, across teams</h2><p className="mt-3 text-gray-600 dark:text-gray-300">Software Engineer at Ninja Digital Innovations. Previously Brand Cloud, Suncreer, and Bconns — delivering web interfaces, APIs, payment flows, and inventory workflows.</p><p className="mt-3 text-gray-600 dark:text-gray-300">{testingExperience}</p><Link href="/experience" className="mt-4 inline-block text-cyan-700 dark:text-cyan-300 underline underline-offset-4">Explore my experience →</Link></section>
+          <div className="text-center"><Link href="/projects" className="text-brand-accent underline underline-offset-4">View all projects →</Link></div>
+          <section className="mx-auto my-12 max-w-6xl rounded-2xl border border-brand-border p-6 md:p-8"><h2 className="text-2xl font-bold">Production experience, across teams</h2><p className="mt-3 text-brand-muted ">Software Engineer at Ninja Digital Innovations. Previously Brand Cloud, Suncreer, and Bconns — delivering web interfaces, APIs, payment flows, and inventory workflows.</p><p className="mt-3 text-brand-muted ">{testingExperience}</p><Link href="/experience" className="mt-4 inline-block text-brand-accent underline underline-offset-4">Explore my experience →</Link></section>
           <SkillsSection skills={skills.filter(s => ['JavaScript','TypeScript','React','Next.js','Tailwind CSS','Node.js','PostgreSQL','Prisma'].includes(s.skill_name))} />
-          <div className="text-center"><Link href="/skills" className="text-cyan-700 dark:text-cyan-300 underline underline-offset-4">View the full toolkit →</Link></div>
+          <div className="text-center"><Link href="/skills" className="text-brand-accent underline underline-offset-4">View the full toolkit →</Link></div>
           <ServicesSection services={services} featuredOnly />
         </div>
       )}

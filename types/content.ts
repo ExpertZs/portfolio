@@ -90,6 +90,7 @@ export type AboutInfo = {
     address: string;
   };
   education: { degree: string; institution: string; field: string; year: string }[];
+  training: { degree: string; institution: string; field: string; year: string }[];
   experience: { role: string; company: string; url?: string; period: string; note?: string }[];
 };
 

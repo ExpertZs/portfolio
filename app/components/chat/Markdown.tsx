@@ -18,7 +18,7 @@ const renderInline = (text: string, keyPrefix: string): React.ReactNode[] =>
         return (
           <code
             key={key}
-            className="rounded bg-black/10 px-1 py-0.5 font-fira_code text-[0.85em] dark:bg-white/10"
+            className="rounded bg-black/10 px-1 py-0.5 font-fira_code text-[0.85em] dark:bg-brand-soft"
           >
             {part.slice(1, -1)}
           </code>
@@ -32,7 +32,7 @@ const renderInline = (text: string, keyPrefix: string): React.ReactNode[] =>
             key={key}
             href={link[2]}
             {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-            className="text-cyan-600 underline underline-offset-2 dark:text-cyan-300"
+            className="text-brand-accent underline underline-offset-2 "
           >
             {link[1]}
           </a>

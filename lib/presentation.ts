@@ -1,4 +1,4 @@
-import { experience, profile, projects, services, skills, skillDescriptions, skillExperience, skillExperienceLabel, testingExperience } from './data';
+import { training, experience, profile, projects, services, skills, skillDescriptions, skillExperience, skillExperienceLabel, testingExperience } from './data';
 import icons from './skill-icons.json';
 import type { AboutInfo, ContactInfo, ProjectInfo, ServiceInfo, SkillInfo } from '@/types/content';
 
@@ -15,6 +15,7 @@ export const about: AboutInfo = {
  skill_bars:[],
  personal:{occupation:'Full Stack Software Engineer',date_of_birth:'',nationality:'',address:'Dhaka, Bangladesh'},
  education:[{degree:'Master of Science in Computer Science',institution:'Jahangirnagar University',field:'CGPA 3.60 / 4.00',year:'2019–2021'},{degree:'Bachelor of Science in Computer Science & Engineering',institution:'Uttara University',field:'CGPA 3.88 / 4.00',year:'2015–2018'}],
+ training,
  experience:experience.map(item=>({role:'Software Engineer',company:item.company,period:item.date,note:item.points.join(' ')}))
 };
 const coreSkillDetails: Record<string,string> = {
