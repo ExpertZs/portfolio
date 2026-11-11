@@ -59,7 +59,7 @@ const labelCls =
 export default function ContactForm() {
   const reduce = useReducedMotion();
   const [topic, setTopic] = useState<string>("");
-  const [sent, setSent] = useState<{ message: string; draft?: string } | null>(null);
+  const [sent, setSent] = useState<{ message: string } | null>(null);
   const [serverError, setServerError] = useState("");
 
   const {
@@ -100,7 +100,7 @@ export default function ContactForm() {
         signal: AbortSignal.timeout(18000),
       });
       const result = await res.json().catch(() => ({}));
-      if (!res.ok) {
+      if (!res.ok || result.sent !== true) {
         if (result.field === "email") {
           setError("email", { type: "server", message: result.message });
           return;
@@ -112,7 +112,7 @@ export default function ContactForm() {
         );
         return;
       }
-      setSent({ message: result.message, draft: result.draft });
+      setSent({ message: result.message });
       reset();
       setTopic("");
     } catch {
@@ -146,12 +146,11 @@ export default function ContactForm() {
                 initial={{ pathLength: reduce ? 1 : 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.45, delay: 0.5 }}
               />
             </svg>
-            <h3 className="mt-5 font-poppins text-2xl font-bold text-brand-text">{sent.draft ? "Email draft ready" : "Message sent!"}</h3>
+            <h3 className="mt-5 font-poppins text-2xl font-bold text-brand-text">Message sent!</h3>
             <p className="mt-2 max-w-md text-brand-muted ">
               {sent.message}
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
-              {sent.draft && <a href={sent.draft} className="rounded-full brand-action px-5 py-2 text-white">Open email draft ↗</a>}
               <button
                 type="button"
                 onClick={() => setSent(null)}

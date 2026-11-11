@@ -181,7 +181,7 @@ function ProjectCard({
         />
         <div className="absolute left-3 top-3 flex flex-wrap gap-2">
           <span
-            className={`flex items-center gap-1 rounded-full bg-gradient-to-r ${type.tile} px-2.5 py-1 text-[11px] font-semibold text-white shadow`}
+            className={`flex items-center gap-1 rounded-full brand-action px-2.5 py-1 text-[11px] font-semibold text-white shadow`}
           >
             {type.icon}
             {type.label}
@@ -243,7 +243,7 @@ function ProjectCard({
               href={project.live_link}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-1 rounded-full bg-gradient-to-r ${type.button} px-4 py-1.5 text-xs font-semibold text-white shadow transition hover:shadow-lg`}
+              className={`flex items-center gap-1 rounded-full brand-action px-4 py-1.5 text-xs font-semibold text-white shadow transition hover:shadow-lg`}
             >
               Live demo <MdArrowOutward className="text-sm" />
             </a>

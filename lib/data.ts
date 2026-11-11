@@ -61,4 +61,4 @@ export const skillDescriptions: Record<string, string> = {
  'Security & AI':'Secure access and AI-powered product features.'
 };
 export const resumeContext = JSON.stringify({profile,training,skills,skillExperience,testingExperience,experience,projects,education:['MSc Computer Science, Jahangirnagar University, 2019–2021, CGPA 3.60/4.00','BSc Computer Science & Engineering, Uttara University, 2015–2018, CGPA 3.88/4.00'],awards:['ITEE FE, BD-ITEC, 2022','Vice-Chancellor Award, Uttara University']});
-export const sections = ['about','skills','experience','projects','services','blogs','match','ask','contact'] as const;
+export const sections = ['about','skills','experience','projects','services','match','ask','contact'] as const;

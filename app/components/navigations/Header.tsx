@@ -34,7 +34,6 @@ const NAV = [
   { href: "/about", label: "About", icon: <MdPerson /> },
   { href: "/projects", label: "Projects", icon: <MdWorkOutline /> },
   { href: "/services", label: "Services", icon: <MdDesignServices /> },
-  { href: "/blogs", label: "Blogs", icon: <MdArticle /> },
   { href: "/match", label: "AI Match", icon: <MdAutoAwesome />, ai: true },
 ];
 

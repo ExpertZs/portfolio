@@ -25,7 +25,7 @@ import {
 } from "react-icons/md";
 import { openChat } from "../display/ChatIcon";
 
-type Kind = "project" | "blog" | "skill" | "service";
+type Kind = "project" | "skill" | "service";
 type Filter = "all" | Kind;
 
 type ApiResult = {
@@ -58,13 +58,11 @@ const SUGGESTIONS = ["AI projects", "Next.js", "tRPC and Prisma", "API integrati
 const FILTERS: { id: Filter; label: string }[] = [
   { id: "all", label: "All" },
   { id: "project", label: "Projects" },
-  { id: "blog", label: "Blogs" },
   { id: "skill", label: "Skills" },
 ];
 
 const KIND_META: Record<Kind, { label: string; plural: string; icon: ReactNode }> = {
   project: { label: "Project", plural: "Projects", icon: <MdFolder /> },
-  blog: { label: "Blog", plural: "Blog posts", icon: <MdArticle /> },
   skill: { label: "Skill", plural: "Skills", icon: <MdCode /> },
   service: { label: "Service", plural: "Services", icon: <MdBuild /> },
 };
@@ -76,7 +74,6 @@ const PAGES = [
   { path: "/", title: "Home", icon: <MdHome />, words: "home start landing" },
   { path: "/about", title: "About", icon: <MdPerson />, words: "about me experience education resume bio" },
   { path: "/projects", title: "Projects", icon: <MdWorkOutline />, words: "projects work portfolio" },
-  { path: "/blogs", title: "Blogs", icon: <MdArticle />, words: "blogs articles posts writing" },
   { path: "/match", title: "AI Job Match", icon: <MdAutoAwesome />, words: "ai job match recruiter hire fit" },
   { path: "/contact", title: "Contact", icon: <MdMail />, words: "contact email hire reach message" },
 ];
@@ -323,7 +320,7 @@ export default function SearchPalette() {
       );
     }
 
-    (["project", "blog", "skill", "service"] as Kind[]).forEach((kind) => {
+    (["project", "skill", "service"] as Kind[]).forEach((kind) => {
       results
         .filter((r) => r.kind === kind)
         .forEach((r) => {
@@ -432,7 +429,7 @@ export default function SearchPalette() {
                 aria-label="Search"
                 autoComplete="off"
                 spellCheck={false}
-                placeholder="Search projects, blogs, skills… or ask anything"
+                placeholder="Search projects, skills… or ask anything"
                 className="h-14 w-full bg-transparent text-base text-black outline-none placeholder:text-brand-muted dark:text-white"
               />
               {loading ? (
