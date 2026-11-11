@@ -405,7 +405,7 @@ const ChatbotModal = ({
   const canSend = !isStreaming && inputValue.trim().length > 0;
 
   const iconBtn =
-    "flex h-9 w-9 items-center justify-center rounded-full text-gray-600 transition hover:bg-black/5 hover:text-cyan-700 dark:text-gray-300 dark:hover:bg-white/10 dark:hover:text-cyan-300";
+    "flex h-9 w-9 items-center justify-center rounded-full text-brand-muted transition hover:bg-brand-soft hover:text-brand-accent dark:hover:bg-brand-soft ";
 
   return (
     <AnimatePresence>
@@ -434,26 +434,26 @@ const ChatbotModal = ({
             exit={reduce ? { opacity: 0 } : { opacity: 0, y: 30, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 320, damping: 30 }}
             style={{ transformOrigin: "bottom right" }}
-            className="fixed inset-0 z-50 flex flex-col overflow-hidden bg-white/95 outline-none backdrop-blur-xl dark:bg-[#0a1020]/95 min-[768px]:inset-auto min-[768px]:bottom-6 min-[768px]:right-6 min-[768px]:h-[min(680px,calc(100vh-3rem))] min-[768px]:w-[420px] min-[768px]:rounded-3xl min-[768px]:border min-[768px]:border-black/10 min-[768px]:shadow-2xl min-[768px]:shadow-cyan-900/30 dark:min-[768px]:border-white/10"
+            className="fixed inset-0 z-50 flex flex-col overflow-hidden bg-brand-surface outline-none backdrop-blur-xl dark:bg-brand-surface min-[768px]:inset-auto min-[768px]:bottom-6 min-[768px]:right-6 min-[768px]:h-[min(680px,calc(100vh-3rem))] min-[768px]:w-[420px] min-[768px]:rounded-3xl min-[768px]:border min-[768px]:border-brand-border min-[768px]:shadow-2xl min-[768px]:shadow-indigo-900/30 dark:min-[768px]:border-white/10"
           >
             {/* Header */}
-            <div className="relative flex items-center gap-3 border-b border-black/5 px-4 py-3 dark:border-white/10">
+            <div className="relative flex items-center gap-3 border-b border-black/5 px-4 py-3 dark:border-brand-border">
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-0 bg-gradient-to-r from-cyan-500/15 via-teal-500/10 to-emerald-500/15"
+                className="pointer-events-none absolute inset-0 brand-panel"
               />
               <Link href="/" onClick={onClose} aria-label="Home" className="relative shrink-0">
-                <span className="absolute -inset-0.5 rounded-full bg-gradient-to-tr from-cyan-400 to-emerald-400" />
-                <span className="relative block h-11 w-11 overflow-hidden rounded-full border-2 border-white bg-slate-900 dark:border-[#0a1020]">
+                <span className="absolute -inset-0.5 rounded-full bg-gradient-to-tr from-indigo-400 to-violet-400" />
+                <span className="relative block h-11 w-11 overflow-hidden rounded-full border-2 border-white bg-slate-900 dark:border-[#151b30]">
                   <SmartImage src="/images/zahidul_c.png" alt="" width={88} height={88} className="h-full w-full object-cover" />
                 </span>
-                <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-white bg-emerald-500 dark:border-[#0a1020]" />
+                <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-white bg-emerald-500 dark:border-[#151b30]" />
               </Link>
               <div className="relative min-w-0 flex-1">
-                <h3 className="flex items-center gap-1.5 font-poppins text-base font-semibold leading-tight text-gray-900 dark:text-white">
-                  Zahidul&apos;s AI <MdAutoAwesome className="text-cyan-500" />
+                <h3 className="flex items-center gap-1.5 font-poppins text-base font-semibold leading-tight text-brand-text">
+                  Zahidul&apos;s AI <MdAutoAwesome className="text-brand-accent" />
                 </h3>
-                <p className="truncate text-xs text-gray-600 dark:text-gray-400">
+                <p className="truncate text-xs text-brand-muted ">
                   {isStreaming ? "Thinking…" : "Online · answers from my portfolio"}
                 </p>
               </div>
@@ -480,14 +480,14 @@ const ChatbotModal = ({
                 >
                   <motion.div
                     variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } }}
-                    className="rounded-2xl rounded-tl-md border border-cyan-500/20 bg-gradient-to-br from-cyan-500/10 to-emerald-500/10 p-4"
+                    className="rounded-2xl rounded-tl-md border border-brand-border brand-panel p-4"
                   >
-                    <p className="font-poppins text-lg font-semibold text-gray-900 dark:text-white">Hi, I&apos;m Zahidul&apos;s AI 👋</p>
-                    <p className="mt-1 text-sm text-gray-700 dark:text-gray-300">
+                    <p className="font-poppins text-lg font-semibold text-brand-text">Hi, I&apos;m Zahidul&apos;s AI 👋</p>
+                    <p className="mt-1 text-sm text-brand-muted ">
                       Ask me about his projects, skills, experience or how to work together.
                     </p>
                   </motion.div>
-                  <p className="px-1 text-[11px] font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">
+                  <p className="px-1 text-[11px] font-semibold uppercase tracking-widest text-brand-muted ">
                     Try asking
                   </p>
                   <div className="flex flex-col gap-2">
@@ -498,10 +498,10 @@ const ChatbotModal = ({
                         variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0 } }}
                         whileHover={{ x: 3 }}
                         onClick={() => handleFaqClick(item.question, item.answer)}
-                        className="group flex items-center justify-between gap-3 rounded-xl border border-black/10 bg-white/70 px-4 py-2.5 text-left text-sm text-gray-800 transition hover:border-cyan-500/60 hover:bg-cyan-500/5 dark:border-white/10 dark:bg-white/[0.04] dark:text-gray-200"
+                        className="group flex items-center justify-between gap-3 rounded-xl border border-brand-border bg-brand-surface px-4 py-2.5 text-left text-sm text-brand-text transition hover:border-brand-border hover:bg-indigo-500/5 dark:border-brand-border dark:bg-brand-surface "
                       >
                         {item.question}
-                        <MdArrowOutward className="shrink-0 text-cyan-500 opacity-0 transition group-hover:opacity-100" />
+                        <MdArrowOutward className="shrink-0 text-brand-accent opacity-0 transition group-hover:opacity-100" />
                       </motion.button>
                     ))}
                   </div>
@@ -521,15 +521,15 @@ const ChatbotModal = ({
                     className={`flex items-end gap-2 ${isBot ? "justify-start" : "justify-end"}`}
                   >
                     {isBot && (
-                      <span className="mb-1 h-7 w-7 shrink-0 overflow-hidden rounded-full bg-slate-900 ring-2 ring-cyan-500/40">
+                      <span className="mb-1 h-7 w-7 shrink-0 overflow-hidden rounded-full bg-slate-900 ring-2 ring-indigo-500/40">
                         <SmartImage src="/images/zahidul_c.png" alt="" width={56} height={56} className="h-full w-full object-cover" />
                       </span>
                     )}
                     <div
                       className={`max-w-[85%] break-words px-3.5 py-2.5 text-sm leading-relaxed ${
                         isBot
-                          ? "rounded-2xl rounded-bl-md border border-black/5 bg-gray-100 text-gray-900 dark:border-white/10 dark:bg-white/[0.07] dark:text-gray-100"
-                          : "whitespace-pre-wrap rounded-2xl rounded-br-md bg-gradient-to-br from-cyan-600 to-teal-500 text-white shadow-md shadow-cyan-500/20"
+                          ? "rounded-2xl rounded-bl-md border border-black/5 bg-gray-100 text-brand-text dark:border-brand-border dark:bg-white/[0.07] "
+                          : "whitespace-pre-wrap rounded-2xl rounded-br-md brand-action text-white shadow-md shadow-indigo-500/20"
                       }`}
                     >
                       {isBot && parsed ? (
@@ -541,7 +541,7 @@ const ChatbotModal = ({
                               {[0, 1, 2].map((i) => (
                                 <motion.span
                                   key={i}
-                                  className="h-2 w-2 rounded-full bg-cyan-500"
+                                  className="h-2 w-2 rounded-full bg-indigo-500"
                                   animate={reduce ? undefined : { y: [0, -5, 0], opacity: [0.4, 1, 0.4] }}
                                   transition={{ duration: 0.9, repeat: Infinity, delay: i * 0.15 }}
                                 />
@@ -560,11 +560,11 @@ const ChatbotModal = ({
             </div>
 
             {/* Composer */}
-            <div className="border-t border-black/5 px-4 pb-3 pt-3 dark:border-white/10">
-              <div className="flex items-center gap-1 rounded-full border border-black/10 bg-white py-1 pl-4 pr-1.5 shadow-sm transition focus-within:border-cyan-500 focus-within:ring-4 focus-within:ring-cyan-500/15 dark:border-white/15 dark:bg-black/40">
+            <div className="border-t border-black/5 px-4 pb-3 pt-3 dark:border-brand-border">
+              <div className="flex items-center gap-1 rounded-full border border-brand-border bg-white py-1 pl-4 pr-1.5 shadow-sm transition focus-within:border-indigo-500 focus-within:ring-4 focus-within:ring-indigo-500/15 dark:border-brand-border dark:bg-brand-surface">
                 <input
                   type="text"
-                  className="min-w-0 flex-1 bg-transparent text-sm text-gray-900 outline-none placeholder:text-gray-500 dark:text-white"
+                  className="min-w-0 flex-1 bg-transparent text-sm text-brand-text outline-none placeholder:text-brand-muted dark:text-white"
                   placeholder="Ask me anything…"
                   aria-label="Message"
                   maxLength={MAX_INPUT_CHARS}
@@ -587,8 +587,8 @@ const ChatbotModal = ({
                       : "Voice playback not supported in this browser"
                   }
                   className={`flex h-9 w-9 items-center justify-center rounded-full transition ${
-                    isVoiceEnabled ? "text-cyan-600 dark:text-cyan-300" : "text-gray-500"
-                  } ${speechSynthesisSupported ? "hover:bg-black/5 dark:hover:bg-white/10" : "cursor-not-allowed opacity-40"}`}
+                    isVoiceEnabled ? "text-brand-accent " : "text-brand-muted"
+                  } ${speechSynthesisSupported ? "hover:bg-brand-soft dark:hover:bg-brand-soft" : "cursor-not-allowed opacity-40"}`}
                 >
                   {isVoiceEnabled ? <BsVolumeUpFill size={17} /> : <BsVolumeMuteFill size={17} />}
                 </button>
@@ -605,8 +605,8 @@ const ChatbotModal = ({
                       : "Voice input not supported in this browser"
                   }
                   className={`flex h-9 w-9 items-center justify-center rounded-full transition ${
-                    isListening ? "animate-pulse bg-red-600 text-white" : "text-cyan-600 dark:text-cyan-300"
-                  } ${speechRecognitionSupported ? "hover:bg-black/5 dark:hover:bg-white/10" : "cursor-not-allowed opacity-40"}`}
+                    isListening ? "animate-pulse bg-red-600 text-white" : "text-brand-accent "
+                  } ${speechRecognitionSupported ? "hover:bg-brand-soft dark:hover:bg-brand-soft" : "cursor-not-allowed opacity-40"}`}
                 >
                   {isListening ? <BsMicMuteFill size={17} /> : <BsMicFill size={17} />}
                 </button>
@@ -615,12 +615,12 @@ const ChatbotModal = ({
                   aria-label="Send message"
                   disabled={!canSend}
                   onClick={() => handleSendMessage()}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-600 to-teal-500 text-white shadow-md shadow-cyan-500/30 transition enabled:hover:scale-105 disabled:opacity-40"
+                  className="flex h-10 w-10 items-center justify-center rounded-full brand-action text-white shadow-md shadow-indigo-500/30 transition enabled:hover:scale-105 disabled:opacity-40"
                 >
                   <IoMdSend size={19} />
                 </button>
               </div>
-              <p className="mt-2 text-center text-[11px] text-gray-500 dark:text-gray-400">
+              <p className="mt-2 text-center text-[11px] text-brand-muted ">
                 Answers use my resume. Chat stays in this browser; configured AI receives your questions. Verify important details.
               </p>
             </div>

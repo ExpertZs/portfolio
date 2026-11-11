@@ -77,12 +77,12 @@ export default function ChatIcon() {
                   initial={{ opacity: 0, x: 16, scale: 0.9 }}
                   animate={{ opacity: 1, x: 0, scale: 1 }}
                   exit={{ opacity: 0, x: 16, scale: 0.9 }}
-                  className="relative rounded-2xl border border-black/10 bg-white/95 px-4 py-2 text-sm font-medium text-gray-800 shadow-xl backdrop-blur dark:border-white/10 dark:bg-[#0b1222]/95 dark:text-gray-100"
+                  className="relative rounded-2xl border border-brand-border bg-brand-surface px-4 py-2 text-sm font-medium text-brand-text shadow-xl backdrop-blur dark:border-brand-border dark:bg-brand-surface "
                 >
                   Ask me anything about Zahidul 👋
                   <span
                     aria-hidden
-                    className="absolute -right-1 top-1/2 h-2.5 w-2.5 -translate-y-1/2 rotate-45 border-r border-t border-black/10 bg-white dark:border-white/10 dark:bg-[#0b1222]"
+                    className="absolute -right-1 top-1/2 h-2.5 w-2.5 -translate-y-1/2 rotate-45 border-r border-t border-brand-border bg-white dark:border-brand-border dark:bg-brand-surface"
                   />
                 </motion.button>
               )}
@@ -92,13 +92,13 @@ export default function ChatIcon() {
               type="button"
               aria-label="Open AI chat"
               onClick={toggleModal}
-              className="group relative flex h-14 items-center overflow-hidden rounded-full bg-gradient-to-br from-cyan-600 via-teal-500 to-emerald-500 text-white shadow-xl shadow-cyan-500/40 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/50 focus:outline-none focus-visible:ring-4 focus-visible:ring-cyan-300/60"
+              className="group relative flex h-14 items-center overflow-hidden rounded-full brand-action text-white shadow-xl shadow-indigo-500/40 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/50 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-300/60"
             >
               {/* soft pulsing ring */}
               {!reduce && (
                 <motion.span
                   aria-hidden
-                  className="absolute inset-0 rounded-full ring-2 ring-cyan-300/70"
+                  className="absolute inset-0 rounded-full ring-2 ring-indigo-300/70"
                   animate={{ scale: [1, 1.35], opacity: [0.7, 0] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
                 />

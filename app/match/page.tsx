@@ -56,10 +56,10 @@ export default function MatchPage() {
 
   return (
     <div className="mx-auto w-full max-w-3xl py-4">
-      <h1 className="text-3xl font-bold text-primary_dark dark:text-white md:text-4xl">
+      <h1 className="text-3xl font-bold text-brand-accent dark:text-white md:text-4xl">
         ✨ AI Job Match
       </h1>
-      <p className="mt-2 text-gray-700 dark:text-gray-300">
+      <p className="mt-2 text-brand-muted ">
         Paste a job description. The AI compares it with my real experience and
         projects, highlighting supported requirements and areas to discuss.
       </p>
@@ -70,48 +70,48 @@ export default function MatchPage() {
         rows={10}
         placeholder="Paste the job description here…"
         aria-label="Job description"
-        className="mt-4 w-full rounded-xl border border-primary bg-white p-3 text-black outline-none dark:bg-black dark:text-white"
+        className="mt-4 w-full rounded-xl border border-primary bg-white p-3 text-black outline-none dark:bg-brand-surface dark:text-white"
       />
       <div className="mt-2 flex items-center justify-between">
-        <span className="text-xs text-gray-500">
+        <span className="text-xs text-brand-muted">
           {jd.length}/{MAX} · Not saved by this portfolio.
         </span>
         <button
           type="button"
           onClick={analyse}
           disabled={loading || jd.trim().length < 40}
-          className="rounded-lg bg-gradient-to-br from-cyan-500 to-teal-700 px-5 py-2 text-white disabled:opacity-50"
+          className="rounded-lg brand-action px-5 py-2 text-white disabled:opacity-50"
         >
           {loading ? "Analysing…" : "Analyse match"}
         </button>
       </div>
 
-      <p className="mt-2 text-[11px] text-gray-500">When configured, your text is sent to the AI provider. Avoid confidential information.</p>
-      {error && <p role="alert" className="mt-4 text-red-500">{error}</p>}
+      <p className="mt-2 text-[11px] text-brand-muted">When configured, your text is sent to the AI provider. Avoid confidential information.</p>
+      {error && <p role="alert" className="mt-4 text-brand-danger">{error}</p>}
 
       {result && (
         <div className="mt-8 space-y-6">
           <section>
-            <h2 className="text-xl font-semibold text-primary_dark dark:text-cyan-300">
+            <h2 className="text-xl font-semibold text-brand-accent ">
               {result.roleTitle || "Match summary"}
             </h2>
-            <p className="mt-1 text-gray-800 dark:text-gray-200">{result.summary}</p>
+            <p className="mt-1 text-brand-text ">{result.summary}</p>
           </section>
 
           <section>
-            <h3 className="font-semibold text-primary_dark dark:text-cyan-300">
+            <h3 className="font-semibold text-brand-accent ">
               Where I fit
             </h3>
             <ul className="mt-2 space-y-3">
               {result.matches.map((m, i) => (
                 <li
                   key={i}
-                  className="rounded-lg border border-cyan-500/30 bg-white/60 p-3 dark:bg-black/40"
+                  className="rounded-lg border border-brand-border bg-brand-surface p-3 dark:bg-brand-surface"
                 >
-                  <div className="font-medium text-black dark:text-white">
+                  <div className="font-medium text-brand-text">
                     {m.requirement}
                   </div>
-                  <div className="mt-1 text-sm text-gray-700 dark:text-gray-300">
+                  <div className="mt-1 text-sm text-brand-muted ">
                     {m.evidence}
                   </div>
                   {m.projectIds.length > 0 && (
@@ -126,7 +126,7 @@ export default function MatchPage() {
                             href={href}
                             target={href.startsWith("http") ? "_blank" : undefined}
                             rel="noopener noreferrer"
-                            className="rounded-full border border-cyan-500/40 px-2 py-0.5 text-xs text-cyan-700 hover:bg-cyan-500/10 dark:text-cyan-300"
+                            className="rounded-full border border-brand-border px-2 py-0.5 text-xs text-brand-accent hover:bg-brand-soft "
                           >
                             {p.project_title}
                           </a>
@@ -141,10 +141,10 @@ export default function MatchPage() {
 
           {result.gaps.length > 0 && (
             <section>
-              <h3 className="font-semibold text-primary_dark dark:text-cyan-300">
+              <h3 className="font-semibold text-brand-accent ">
                 Honest gaps
               </h3>
-              <ul className="mt-2 list-disc pl-5 text-gray-800 dark:text-gray-200">
+              <ul className="mt-2 list-disc pl-5 text-brand-text ">
                 {result.gaps.map((g, i) => (
                   <li key={i}>{g}</li>
                 ))}
@@ -152,29 +152,29 @@ export default function MatchPage() {
             </section>
           )}
 
-          <section className="rounded-xl border border-cyan-500/30 p-4">
+          <section className="rounded-xl border border-brand-border p-4">
             <div className="flex items-center justify-between">
-              <h3 className="font-semibold text-primary_dark dark:text-cyan-300">
+              <h3 className="font-semibold text-brand-accent ">
                 Suggested intro
               </h3>
               <button
                 type="button"
                 onClick={copyPitch}
-                className="text-sm text-cyan-700 underline dark:text-cyan-300"
+                className="text-sm text-brand-accent underline "
               >
                 {copied ? "Copied" : "Copy"}
               </button>
             </div>
-            <p className="mt-2 text-gray-800 dark:text-gray-200">{result.pitch}</p>
+            <p className="mt-2 text-brand-text ">{result.pitch}</p>
             <Link
               href="/contact"
-              className="mt-4 inline-block rounded-lg bg-primary_dark px-4 py-2 text-white"
+              className="mt-4 inline-block rounded-lg brand-action px-4 py-2 text-white"
             >
               Get in touch
             </Link>
           </section>
 
-          <p className="text-[11px] text-gray-500">
+          <p className="text-[11px] text-brand-muted">
             {result.source}. This review is based on resume evidence, not a hiring recommendation. Verify details with me directly.
           </p>
         </div>

@@ -33,7 +33,7 @@ const MotionDiv = (props: TitleProps) => {
     >
       <div
         className={`relative flex items-center justify-center rounded-full ${
-          isCircularBorder ? "border border-[6px] border-cyan-600" : ""
+          isCircularBorder ? "border border-[6px] border-indigo-600" : ""
         }`}
         style={{
           width: height_width,
@@ -48,7 +48,7 @@ const MotionDiv = (props: TitleProps) => {
           width={height_width}
           height={height_width}
           className={`${
-            isRoundedImage ? "h-full w-full object-cover  rounded-full" : ""
+            isRoundedImage ? "h-full w-full object-cover rounded-full" : ""
           }`}
         />
       </div>

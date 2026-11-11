@@ -27,66 +27,66 @@ const ACCENTS: Record<
 > = {
   web: {
     icon: <MdOutlineCode />,
-    tile: "from-cyan-500 to-blue-500",
-    glow: "6,182,212",
-    check: "text-cyan-500",
-    chip: "bg-cyan-500/10 text-cyan-700 dark:text-cyan-300",
+    tile: "from-brand-button to-brand-button-end",
+    glow: "99,102,241",
+    check: "text-brand-accent",
+    chip: "bg-brand-soft text-brand-accent",
   },
   ai: {
     icon: <MdAutoAwesome />,
-    tile: "from-violet-500 to-fuchsia-500",
-    glow: "168,85,247",
-    check: "text-violet-500",
-    chip: "bg-violet-500/10 text-violet-700 dark:text-violet-300",
+    tile: "from-brand-button to-brand-button-end",
+    glow: "99,102,241",
+    check: "text-brand-accent",
+    chip: "bg-brand-soft text-brand-accent",
   },
   saas: {
     icon: <MdLayers />,
-    tile: "from-emerald-500 to-teal-500",
-    glow: "16,185,129",
-    check: "text-emerald-500",
-    chip: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300",
+    tile: "from-brand-button to-brand-button-end",
+    glow: "99,102,241",
+    check: "text-brand-accent",
+    chip: "bg-brand-soft text-brand-accent",
   },
   mobile: {
     icon: <MdPhoneIphone />,
-    tile: "from-sky-500 to-indigo-500",
-    glow: "59,130,246",
-    check: "text-sky-500",
-    chip: "bg-sky-500/10 text-sky-700 dark:text-sky-300",
+    tile: "from-brand-button to-brand-button-end",
+    glow: "99,102,241",
+    check: "text-brand-accent",
+    chip: "bg-brand-soft text-brand-accent",
   },
   api: {
     icon: <MdDns />,
-    tile: "from-amber-500 to-orange-500",
-    glow: "245,158,11",
-    check: "text-amber-500",
-    chip: "bg-amber-500/10 text-amber-700 dark:text-amber-300",
+    tile: "from-brand-button to-brand-button-end",
+    glow: "99,102,241",
+    check: "text-brand-accent",
+    chip: "bg-brand-soft text-brand-accent",
   },
   design: {
     icon: <MdDesignServices />,
-    tile: "from-pink-500 to-rose-500",
-    glow: "244,63,94",
-    check: "text-rose-500",
-    chip: "bg-rose-500/10 text-rose-700 dark:text-rose-300",
+    tile: "from-brand-button to-brand-button-end",
+    glow: "99,102,241",
+    check: "text-brand-accent",
+    chip: "bg-brand-soft text-brand-accent",
   },
   ab: {
     icon: <MdScience />,
-    tile: "from-lime-500 to-green-500",
-    glow: "132,204,22",
-    check: "text-lime-500",
-    chip: "bg-lime-500/10 text-lime-700 dark:text-lime-300",
+    tile: "from-brand-button to-brand-button-end",
+    glow: "99,102,241",
+    check: "text-brand-accent",
+    chip: "bg-brand-soft text-brand-accent",
   },
   performance: {
     icon: <MdSpeed />,
-    tile: "from-yellow-400 to-orange-500",
-    glow: "250,204,21",
-    check: "text-yellow-500",
-    chip: "bg-yellow-500/10 text-yellow-700 dark:text-yellow-300",
+    tile: "from-brand-button to-brand-button-end",
+    glow: "99,102,241",
+    check: "text-brand-accent",
+    chip: "bg-brand-soft text-brand-accent",
   },
   consulting: {
     icon: <MdLightbulb />,
-    tile: "from-slate-400 to-cyan-500",
-    glow: "100,116,139",
-    check: "text-slate-500",
-    chip: "bg-slate-500/10 text-slate-700 dark:text-slate-300",
+    tile: "from-brand-button to-brand-button-end",
+    glow: "99,102,241",
+    check: "text-brand-accent",
+    chip: "bg-brand-soft text-brand-accent",
   },
 };
 
@@ -127,7 +127,7 @@ function ServiceCard({
       whileHover={reduce ? undefined : { y: -6 }}
       onPointerMove={onMove}
       style={{ ["--glow" as string]: accent.glow }}
-      className="group relative flex flex-col overflow-hidden rounded-3xl border border-black/10 bg-white/70 p-5 shadow-sm backdrop-blur transition-shadow duration-300 hover:shadow-2xl hover:shadow-cyan-500/10 dark:border-white/10 dark:bg-white/[0.04] md:p-6"
+      className="group relative flex flex-col overflow-hidden rounded-3xl border border-brand-border bg-brand-surface p-5 shadow-sm backdrop-blur transition-shadow duration-300 hover:shadow-2xl hover:shadow-indigo-500/10 dark:border-brand-border dark:bg-brand-surface md:p-6"
     >
       {/* Accent line + mouse-follow glow */}
       <div
@@ -157,10 +157,10 @@ function ServiceCard({
         </span>
       </div>
 
-      <h3 className="relative mt-4 font-poppins text-lg font-semibold text-gray-900 dark:text-white md:text-xl">
+      <h3 className="relative mt-4 font-poppins text-lg font-semibold text-brand-text md:text-xl">
         {service.service_title}
       </h3>
-      <p className="relative mt-1.5 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+      <p className="relative mt-1.5 text-sm leading-relaxed text-brand-muted ">
         {service.tagline}
       </p>
 
@@ -168,7 +168,7 @@ function ServiceCard({
         {service.highlights.map((item) => (
           <li
             key={item}
-            className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300"
+            className="flex items-start gap-2 text-sm text-brand-muted "
           >
             <MdCheckCircle className={`mt-0.5 shrink-0 text-base ${accent.check}`} />
             <span>{item}</span>
@@ -198,7 +198,7 @@ function ServiceCard({
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="relative overflow-hidden"
           >
-            <p className="mt-4 border-t border-black/10 pt-4 text-sm leading-relaxed text-gray-700 dark:border-white/10 dark:text-gray-300">
+            <p className="mt-4 border-t border-brand-border pt-4 text-sm leading-relaxed text-brand-muted dark:border-brand-border ">
               {service.service_details}
             </p>
           </motion.div>
@@ -211,7 +211,7 @@ function ServiceCard({
           onClick={onToggle}
           aria-expanded={open}
           aria-controls={panelId}
-          className="flex items-center gap-1 text-sm font-medium text-gray-700 transition-colors hover:text-cyan-600 dark:text-gray-300 dark:hover:text-cyan-300"
+          className="flex items-center gap-1 text-sm font-medium text-brand-muted transition-colors hover:text-brand-accent "
         >
           {open ? "Show less" : "How I work"}
           <MdExpandMore
@@ -224,9 +224,9 @@ function ServiceCard({
             onClick={() =>
               openChat(`Tell me about your ${service.service_title} service: what you deliver and relevant past work.`)
             }
-            className="flex items-center gap-1 rounded-full border border-black/10 px-3 py-1 text-xs font-medium text-gray-700 transition hover:border-cyan-500 hover:text-cyan-700 dark:border-white/15 dark:text-gray-300 dark:hover:text-cyan-300"
+            className="flex items-center gap-1 rounded-full border border-brand-border px-3 py-1 text-xs font-medium text-brand-muted transition hover:border-brand-accent hover:text-brand-accent dark:border-brand-border "
           >
-            <MdAutoAwesome className="text-sm text-cyan-500" /> Ask AI
+            <MdAutoAwesome className="text-sm text-brand-accent" /> Ask AI
           </button>
           <Link
             href="/contact"
@@ -271,20 +271,20 @@ export default function ServicesSection({
         transition={{ duration: 0.5 }}
         className="text-center"
       >
-        <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-xs font-medium uppercase tracking-widest text-cyan-700 dark:text-cyan-300">
-          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-500" />
+        <span className="inline-flex items-center gap-2 rounded-full border border-brand-border bg-brand-soft px-3 py-1 text-xs font-medium uppercase tracking-widest text-brand-accent ">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-indigo-500" />
           Services
         </span>
         <Title
           id="services-heading"
-          className="mt-4 font-poppins text-3xl font-bold text-gray-900 dark:text-white md:text-4xl lg:text-5xl"
+          className="mt-4 font-poppins text-3xl font-bold text-brand-text md:text-4xl lg:text-5xl"
         >
           What I can{" "}
-          <span className="bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400 bg-clip-text text-transparent">
+          <span className="brand-highlight">
             build for you
           </span>
         </Title>
-        <p className="mx-auto mt-3 max-w-2xl text-sm text-gray-600 dark:text-gray-400 md:text-base">
+        <p className="mx-auto mt-3 max-w-2xl text-sm text-brand-muted md:text-base">
           From a first idea to a production launch: web apps, AI features,
           APIs and the backend that powers them.
         </p>
@@ -310,7 +310,7 @@ export default function ServicesSection({
         <div className="mt-8 flex justify-center">
           <Link
             href="/services"
-            className="group flex items-center gap-2 rounded-full border border-cyan-500/40 px-6 py-2 text-sm font-medium text-cyan-700 transition hover:bg-cyan-500/10 dark:text-cyan-300"
+            className="group flex items-center gap-2 rounded-full border border-brand-border px-6 py-2 text-sm font-medium text-brand-accent transition hover:bg-brand-soft "
           >
             View all {services.length} services
             <MdArrowOutward className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -320,7 +320,7 @@ export default function ServicesSection({
 
       {showProcess && (
         <div className="mt-16">
-          <h2 className="text-center font-poppins text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">
+          <h2 className="text-center font-poppins text-2xl font-bold text-brand-text md:text-3xl">
             How we&apos;ll work together
           </h2>
           <ol className="mt-8 grid gap-4 md:grid-cols-4">
@@ -331,15 +331,15 @@ export default function ServicesSection({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.45 }}
-                className="relative rounded-2xl border border-black/10 bg-white/70 p-5 backdrop-blur dark:border-white/10 dark:bg-white/[0.04]"
+                className="relative rounded-2xl border border-brand-border bg-brand-surface p-5 backdrop-blur dark:border-brand-border dark:bg-brand-surface"
               >
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 text-sm font-bold text-white">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full brand-action text-sm font-bold text-white">
                   {i + 1}
                 </span>
-                <h3 className="mt-3 font-poppins font-semibold text-gray-900 dark:text-white">
+                <h3 className="mt-3 font-poppins font-semibold text-brand-text">
                   {step.title}
                 </h3>
-                <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{step.text}</p>
+                <p className="mt-1 text-sm text-brand-muted ">{step.text}</p>
               </motion.li>
             ))}
           </ol>
@@ -352,25 +352,25 @@ export default function ServicesSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="relative mt-16 overflow-hidden rounded-3xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/15 via-teal-500/10 to-emerald-500/15 p-8 text-center md:p-12"
+          className="relative mt-16 overflow-hidden rounded-3xl border border-brand-border brand-panel p-8 text-center md:p-12"
         >
-          <h2 className="font-poppins text-2xl font-bold text-gray-900 dark:text-white md:text-4xl">
+          <h2 className="font-poppins text-2xl font-bold text-brand-text md:text-4xl">
             Have a project in mind?
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm text-gray-700 dark:text-gray-300 md:text-base">
+          <p className="mx-auto mt-3 max-w-xl text-sm text-brand-muted md:text-base">
             Tell me what you&apos;re building and let&apos;s discuss the next steps.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/contact"
-              className="rounded-full bg-gradient-to-r from-cyan-600 to-teal-500 px-6 py-2.5 font-medium text-white shadow-lg shadow-cyan-500/30 transition hover:shadow-xl"
+              className="rounded-full brand-action px-6 py-2.5 font-medium text-white shadow-lg shadow-indigo-500/30 transition hover:shadow-xl"
             >
               Hire me
             </Link>
             <button
               type="button"
               onClick={() => openChat("I have a project idea. What should I tell you to get started?")}
-              className="flex items-center gap-2 rounded-full border border-cyan-500/50 px-6 py-2.5 font-medium text-cyan-700 transition hover:bg-cyan-500/10 dark:text-cyan-200"
+              className="flex items-center gap-2 rounded-full border border-brand-border px-6 py-2.5 font-medium text-brand-accent transition hover:bg-brand-soft "
             >
               <MdAutoAwesome /> Ask my AI first
             </button>

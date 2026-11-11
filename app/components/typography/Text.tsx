@@ -26,7 +26,7 @@ type Props = {
     } = props;
     return (
       <span
-        className={`whitespace-normal  ${className} ${
+        className={`whitespace-normal ${className} ${
             isNosifer ? "font-nosifer" : isPoppins ? "font-poppins" : isCode ? "font-fira_code" : "font-mplus_1p"
           } ${
           isBold && "font-bold"

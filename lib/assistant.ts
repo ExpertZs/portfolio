@@ -1,4 +1,4 @@
-import { experience, profile, projects, skills, services } from './data';
+import { trainingSummary, experience, profile, projects, skills, services } from './data';
 const groups: Record<string,string[]> = {...skills,Other:['Laravel','Stripe','tRPC','Testing','Code review','Remote collaboration']};
 const terms = [...new Set(Object.values(groups).flat())];
 const aliases:Record<string,string[]> = {'Next.js':['nextjs','next.js'], 'Node.js':['nodejs','node.js'], 'React':['react','react.js','reactjs'],'REST':['rest','restful'], 'API integration':['api','apis'],'LLM integration':['llm','llms'],'Agent workflows':['agents','agent workflows']};
@@ -13,7 +13,8 @@ export function fallback(mode:'ask'|'match',input:string){
  if(/service|deliver/.test(q)){const service=services.find(s=>q.includes(s.title.toLowerCase()));return service?service.title+': '+service.description+'\n\n'+service.points.join('\n')+'\n\n'+service.workflow:services.map(s=>s.title+' — '+s.description).join('\n\n');}
  if(/salary|available|availability|visa|age|married|religion/.test(q))return 'That information is not established in the resume. Please contact Zahidul at '+profile.email+' to confirm.';
  if(/contact|email|phone/.test(q))return `You can reach Zahidul at ${profile.email} or ${profile.phone}. GitHub: ${profile.github}.`;
- if(/education|degree|university|award|certif/.test(q))return 'Zahidul holds an MSc in Computer Science from Jahangirnagar University (2019–2021, CGPA 3.60/4.00) and a BSc in Computer Science & Engineering from Uttara University (2015–2018, CGPA 3.88/4.00). His resume lists ITEE FE certification (BD-ITEC, 2022) and the Vice-Chancellor Award from Uttara University.';
+ if(/bjet|miyazaki|north south|japanese(?: language)?|language training/.test(q))return trainingSummary;
+ if(/education|degree|university|award|certif/.test(q))return 'Zahidul holds an MSc in Computer Science from Jahangirnagar University (2019–2021, CGPA 3.60/4.00) and a BSc in Computer Science & Engineering from Uttara University (2015–2018, CGPA 3.88/4.00). His resume lists ITEE FE certification (BD-ITEC, 2022) and the Vice-Chancellor Award from Uttara University.'+'\n\n'+trainingSummary;
  const project=projects.find(p=>q.includes(p.name.toLowerCase())||q.includes(p.name.split(' ')[0].toLowerCase())&&p.name.split(' ')[0]!=='Brand');
  if(project)return `${project.displayName || project.name}: ${project.description}\n\nStack: ${project.stack.join(', ')}.${project.url?'\n\nWebsite: '+project.url:''}`;
  if(/project|built|work sample/.test(q))return projects.map(p=>`${p.displayName || p.name} — ${p.description}`).join('\n\n');

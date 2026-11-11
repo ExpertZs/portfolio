@@ -36,12 +36,12 @@ export default function Spinner({ size = "md", label = "Loading", showLabel = fa
         {!mono && (
           <defs>
             <linearGradient id={`g1-${gid}`} x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#06b6d4" />
-              <stop offset="100%" stopColor="#34d399" />
+              <stop offset="0%" stopColor="#6366f1" />
+              <stop offset="100%" stopColor="#a78bfa" />
             </linearGradient>
             <linearGradient id={`g2-${gid}`} x1="1" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#6366f1" />
-              <stop offset="100%" stopColor="#06b6d4" />
+              <stop offset="100%" stopColor="#6366f1" />
             </linearGradient>
           </defs>
         )}
@@ -61,9 +61,9 @@ export default function Spinner({ size = "md", label = "Loading", showLabel = fa
           </g>
         )}
         {/* pulsing core */}
-        {px > 20 && <circle cx="25" cy="25" r="3.2" fill={mono ? "currentColor" : "#22d3ee"} className="animate-pulse motion-reduce:animate-none" />}
+        {px > 20 && <circle cx="25" cy="25" r="3.2" fill={mono ? "currentColor" : "#a5b4fc"} className="animate-pulse motion-reduce:animate-none" />}
       </svg>
-      {showLabel ? <span className="text-sm text-gray-600 dark:text-gray-300">{label}</span> : <span className="sr-only">{label}</span>}
+      {showLabel ? <span className="text-sm text-brand-muted ">{label}</span> : <span className="sr-only">{label}</span>}
     </span>
   );
 }

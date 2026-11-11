@@ -52,7 +52,7 @@ function ThemeToggle({ className = "" }: { className?: string }) {
       type="button"
       onClick={() => setTheme(dark ? "light" : "dark")}
       aria-label={mounted ? `Switch to ${dark ? "light" : "dark"} theme` : "Toggle theme"}
-      className={`relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-black/10 text-xl text-gray-700 transition hover:border-cyan-500/60 hover:text-cyan-600 dark:border-white/15 dark:text-gray-200 dark:hover:text-cyan-300 ${className}`}
+      className={`relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-brand-border text-xl text-brand-muted transition hover:border-brand-border hover:text-brand-accent dark:border-brand-border ${className}`}
     >
       <AnimatePresence mode="wait" initial={false}>
         {mounted && (
@@ -64,7 +64,7 @@ function ThemeToggle({ className = "" }: { className?: string }) {
             transition={{ duration: 0.22 }}
             className="absolute"
           >
-            {dark ? <MdDarkMode className="text-[#F6F1D5]" /> : <MdLightMode className="text-amber-500" />}
+            {dark ? <MdDarkMode className="text-brand-text" /> : <MdLightMode className="text-brand-accent" />}
           </motion.span>
         )}
       </AnimatePresence>
@@ -78,18 +78,18 @@ function Logo({ contact, onClick }: { contact: ContactInfo; onClick?: () => void
       <span className="relative h-10 w-10 shrink-0 md:h-11 md:w-11">
         <span
           aria-hidden
-          className="absolute -inset-0.5 rounded-full bg-gradient-to-tr from-cyan-400 to-emerald-400 opacity-80 blur-[1px] transition-all duration-500 group-hover:-inset-1 group-hover:opacity-100"
+          className="absolute -inset-0.5 rounded-full bg-gradient-to-tr from-indigo-400 to-violet-400 opacity-80 blur-[1px] transition-all duration-500 group-hover:-inset-1 group-hover:opacity-100"
         />
         <span className="relative block h-full w-full overflow-hidden rounded-full border-2 border-white bg-slate-900 dark:border-slate-900">
           <SmartImage src="/images/zahidul_c.png" alt="" width={88} height={88} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
         </span>
       </span>
       <span className="hidden leading-tight sm:block">
-        <span className="block font-poppins text-lg font-semibold tracking-wide text-gray-900 dark:text-white">
+        <span className="block font-poppins text-lg font-semibold tracking-wide text-brand-text">
           Zahidul
-          <span className="text-cyan-500">.</span>
+          <span className="brand-highlight">.</span>
         </span>
-        <span className="block text-[11px] text-gray-500 dark:text-gray-400">{shortRole(contact.title)}</span>
+        <span className="block text-[11px] text-brand-muted ">{shortRole(contact.title)}</span>
       </span>
     </Link>
   );
@@ -140,7 +140,7 @@ export default function Header({ contact }: { contact: ContactInfo }) {
         <div
           className={`mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-2xl px-4 transition-all duration-300 md:px-5 ${
             scrolled
-              ? "border border-black/10 bg-white/75 py-1.5 shadow-lg shadow-black/5 backdrop-blur-xl dark:border-white/10 dark:bg-[#0b1222]/75 dark:shadow-black/30"
+              ? "border border-brand-border bg-brand-surface py-1.5 shadow-lg shadow-black/5 backdrop-blur-xl dark:border-brand-border dark:bg-brand-surface dark:shadow-black/30"
               : "border border-transparent bg-transparent py-3"
           }`}
         >
@@ -158,19 +158,19 @@ export default function Header({ contact }: { contact: ContactInfo }) {
                       aria-current={active ? "page" : undefined}
                       className={`relative flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
                         active
-                          ? "text-cyan-700 dark:text-cyan-200"
-                          : "text-gray-700 hover:bg-black/5 hover:text-cyan-700 dark:text-gray-300 dark:hover:bg-white/5 dark:hover:text-cyan-200"
+                          ? "text-brand-accent "
+                          : "text-brand-muted hover:bg-brand-soft hover:text-brand-accent dark:hover:bg-brand-soft "
                       }`}
                     >
                       {active && (
                         <motion.span
                           layoutId="nav-pill"
-                          className="absolute inset-0 rounded-full bg-cyan-500/15 ring-1 ring-cyan-500/30"
+                          className="absolute inset-0 rounded-full bg-brand-soft ring-1 ring-indigo-500/30"
                           transition={{ type: "spring", stiffness: 420, damping: 34 }}
                         />
                       )}
                       <span className="relative flex items-center gap-1.5">
-                        {item.ai && <MdAutoAwesome className="text-cyan-500" />}
+                        {item.ai && <MdAutoAwesome className="text-brand-accent" />}
                         {item.label}
                       </span>
                     </Link>
@@ -185,17 +185,17 @@ export default function Header({ contact }: { contact: ContactInfo }) {
               type="button"
               onClick={openSearch}
               aria-label="Search (Ctrl K)"
-              className="flex h-10 items-center gap-2 rounded-full border border-black/10 px-3 text-sm text-gray-700 transition hover:border-cyan-500/60 hover:text-cyan-700 dark:border-white/15 dark:text-gray-200 dark:hover:text-cyan-300"
+              className="flex h-10 items-center gap-2 rounded-full border border-brand-border px-3 text-sm text-brand-muted transition hover:border-brand-border hover:text-brand-accent dark:border-brand-border "
             >
               <MdSearch className="text-xl" />
-              <kbd className="hidden rounded border border-black/10 bg-black/5 px-1.5 text-[10px] text-gray-600 dark:border-white/20 dark:bg-white/10 dark:text-gray-300 min-[1200px]:inline">
+              <kbd className="hidden rounded border border-brand-border bg-brand-soft px-1.5 text-[10px] text-brand-muted dark:border-brand-border dark:bg-brand-soft min-[1200px]:inline">
                 Ctrl K
               </kbd>
             </button>
             <ThemeToggle />
             <Link
               href="/contact"
-              className="group hidden items-center gap-1.5 rounded-full bg-gradient-to-r from-cyan-600 to-teal-500 px-5 py-2.5 text-sm font-medium text-white shadow-lg shadow-cyan-500/25 transition hover:shadow-xl hover:shadow-cyan-500/30 min-[1024px]:flex"
+              className="group hidden items-center gap-1.5 rounded-full brand-action px-5 py-2.5 text-sm font-medium text-white shadow-lg shadow-indigo-500/25 transition hover:shadow-xl hover:shadow-indigo-500/30 min-[1024px]:flex"
             >
               Let&apos;s talk
               <MdArrowOutward className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -206,7 +206,7 @@ export default function Header({ contact }: { contact: ContactInfo }) {
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               aria-controls="mobile-menu"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 text-gray-800 transition hover:border-cyan-500/60 dark:border-white/15 dark:text-gray-100 min-[1024px]:hidden"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-border text-brand-text transition hover:border-brand-border dark:border-brand-border min-[1024px]:hidden"
             >
               <Burger open={open} />
             </button>
@@ -218,7 +218,7 @@ export default function Header({ contact }: { contact: ContactInfo }) {
       <motion.div
         aria-hidden
         style={{ scaleX: reduce ? scrollYProgress : progress }}
-        className="h-[2px] origin-left bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400"
+        className="h-[2px] origin-left bg-gradient-to-r from-indigo-500 via-violet-400 to-violet-400"
       />
 
       {/* Mobile drawer */}
@@ -243,7 +243,7 @@ export default function Header({ contact }: { contact: ContactInfo }) {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 320, damping: 36 }}
-              className="fixed right-0 top-0 z-[47] flex h-full w-[min(88vw,360px)] flex-col overflow-y-auto border-l border-black/10 bg-white/95 p-5 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-[#0b1222]/95 min-[1024px]:hidden"
+              className="fixed right-0 top-0 z-[47] flex h-full w-[min(88vw,360px)] flex-col overflow-y-auto border-l border-brand-border bg-brand-surface p-5 shadow-2xl backdrop-blur-xl dark:border-brand-border dark:bg-brand-surface min-[1024px]:hidden"
             >
               <div className="flex items-center justify-between">
                 <Logo contact={contact} onClick={() => setOpen(false)} />
@@ -251,7 +251,7 @@ export default function Header({ contact }: { contact: ContactInfo }) {
                   type="button"
                   onClick={() => setOpen(false)}
                   aria-label="Close menu"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 text-gray-800 dark:border-white/15 dark:text-gray-100"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-border text-brand-text dark:border-brand-border "
                 >
                   <Burger open />
                 </button>
@@ -275,11 +275,11 @@ export default function Header({ contact }: { contact: ContactInfo }) {
                         aria-current={active ? "page" : undefined}
                         className={`flex items-center gap-3 rounded-xl px-4 py-3 text-base font-medium transition ${
                           active
-                            ? "bg-cyan-500/15 text-cyan-700 ring-1 ring-cyan-500/30 dark:text-cyan-200"
-                            : "text-gray-800 hover:bg-black/5 dark:text-gray-200 dark:hover:bg-white/5"
+                            ? "bg-brand-soft text-brand-accent ring-1 ring-indigo-500/30 "
+                            : "text-brand-text hover:bg-brand-soft dark:hover:bg-brand-soft"
                         }`}
                       >
-                        <span className={`text-xl ${active ? "text-cyan-500" : "text-gray-500 dark:text-gray-400"}`}>
+                        <span className={`text-xl ${active ? "text-brand-accent" : "text-brand-muted "}`}>
                           {item.icon}
                         </span>
                         {item.label}
@@ -292,7 +292,7 @@ export default function Header({ contact }: { contact: ContactInfo }) {
               <div className="mt-6 space-y-3">
                 <Link
                   href="/contact"
-                  className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-600 to-teal-500 py-3 font-medium text-white shadow-lg shadow-cyan-500/25"
+                  className="flex items-center justify-center gap-2 rounded-xl brand-action py-3 font-medium text-white shadow-lg shadow-indigo-500/25"
                 >
                   Let&apos;s talk <MdArrowOutward />
                 </Link>
@@ -303,7 +303,7 @@ export default function Header({ contact }: { contact: ContactInfo }) {
                       setOpen(false);
                       openSearch();
                     }}
-                    className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-black/10 py-2.5 text-sm text-gray-800 dark:border-white/15 dark:text-gray-200"
+                    className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-brand-border py-2.5 text-sm text-brand-text dark:border-brand-border "
                   >
                     <MdSearch className="text-lg" /> Search
                   </button>
@@ -313,7 +313,7 @@ export default function Header({ contact }: { contact: ContactInfo }) {
 
               <div className="mt-auto pt-8">
                 <SocialIcons socials={contact.socials} size={22} className="gap-x-5" />
-                <p className="mt-4 text-center text-xs text-gray-500">{contact.email}</p>
+                <p className="mt-4 text-center text-xs text-brand-muted">{contact.email}</p>
               </div>
             </motion.aside>
           </>

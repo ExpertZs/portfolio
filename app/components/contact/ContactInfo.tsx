@@ -23,7 +23,7 @@ function CopyButton({ value, label }: { value: string; label: string }) {
       onClick={copy}
       aria-label={`Copy ${label}`}
       title={`Copy ${label}`}
-      className="shrink-0 rounded-lg p-2 text-gray-500 transition hover:bg-cyan-500/10 hover:text-cyan-600 dark:text-gray-400"
+      className="shrink-0 rounded-lg p-2 text-brand-muted transition hover:bg-brand-soft hover:text-brand-accent "
     >
       {copied ? <MdCheck className="text-emerald-500" /> : <MdContentCopy />}
     </button>
@@ -79,7 +79,7 @@ export default function ContactInfo({ contact }: { contact: ContactData }) {
           </span>
           <div>
             <div className="text-sm font-semibold text-emerald-800 dark:text-emerald-300">Currently available</div>
-            <p className="text-sm text-gray-700 dark:text-gray-300">{contact.availability}</p>
+            <p className="text-sm text-brand-muted ">{contact.availability}</p>
           </div>
         </motion.div>
       )}
@@ -91,19 +91,19 @@ export default function ContactInfo({ contact }: { contact: ContactData }) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.08 * (i + 1), duration: 0.4 }}
-            className="flex items-center gap-3 rounded-2xl border border-black/10 bg-white/70 p-4 backdrop-blur transition hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/10 dark:border-white/10 dark:bg-white/[0.04]"
+            className="flex items-center gap-3 rounded-2xl border border-brand-border bg-brand-surface p-4 backdrop-blur transition hover:border-brand-border hover:shadow-lg hover:shadow-indigo-500/10 dark:border-brand-border dark:bg-brand-surface"
           >
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-teal-500 text-xl text-white shadow">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl brand-action text-xl text-white shadow">
               {r.icon}
             </span>
             <div className="min-w-0 flex-1">
-              <div className="text-[11px] uppercase tracking-wider text-gray-500 dark:text-gray-400">{r.label}</div>
+              <div className="text-[11px] uppercase tracking-wider text-brand-muted ">{r.label}</div>
               {r.href ? (
-                <a href={r.href} className="block break-words text-sm font-medium text-gray-900 hover:text-cyan-600 dark:text-white dark:hover:text-cyan-300">
+                <a href={r.href} className="block break-words text-sm font-medium text-brand-text hover:text-brand-accent dark:text-white ">
                   {r.value}
                 </a>
               ) : (
-                <div className="text-sm font-medium text-gray-900 dark:text-white">{r.value}</div>
+                <div className="text-sm font-medium text-brand-text">{r.value}</div>
               )}
             </div>
             {r.copy && <CopyButton value={r.copy} label={r.label.toLowerCase()} />}
@@ -116,9 +116,9 @@ export default function ContactInfo({ contact }: { contact: ContactData }) {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45 }}
-          className="rounded-2xl border border-black/10 bg-white/70 p-4 backdrop-blur dark:border-white/10 dark:bg-white/[0.04]"
+          className="rounded-2xl border border-brand-border bg-brand-surface p-4 backdrop-blur dark:border-brand-border dark:bg-brand-surface"
         >
-          <div className="mb-3 text-[11px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Find me online</div>
+          <div className="mb-3 text-[11px] uppercase tracking-wider text-brand-muted ">Find me online</div>
           <SocialIcons socials={contact.socials} size={26} className="!justify-start gap-x-5" />
         </motion.div>
       )}

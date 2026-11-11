@@ -27,25 +27,25 @@ const LEVELS: Record<string, { label: string; rank: number; chip: string; bar: s
   advanced: {
     label: "Advanced",
     rank: 4,
-    chip: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300",
-    bar: "bg-gradient-to-r from-emerald-400 to-cyan-400",
+    chip: "bg-brand-soft text-brand-accent",
+    bar: "bg-brand-accent",
   },
   proficient: {
     label: "Proficient", rank: 3,
-    chip: "bg-cyan-500/15 text-cyan-700 dark:text-cyan-300",
-    bar: "bg-gradient-to-r from-cyan-400 to-teal-400",
+    chip: "bg-brand-soft text-brand-accent",
+    bar: "bg-brand-accent",
   },
   intermediate: {
     label: "Intermediate",
     rank: 2,
-    chip: "bg-sky-500/15 text-sky-700 dark:text-sky-300",
-    bar: "bg-gradient-to-r from-sky-400 to-cyan-400",
+    chip: "bg-brand-soft text-brand-accent",
+    bar: "bg-brand-accent",
   },
   beginner: {
     label: "Learning",
     rank: 1,
-    chip: "bg-amber-500/15 text-amber-700 dark:text-amber-300",
-    bar: "bg-gradient-to-r from-amber-400 to-orange-400",
+    chip: "bg-brand-soft text-brand-accent",
+    bar: "bg-brand-accent",
   },
 };
 
@@ -99,7 +99,7 @@ function MarqueeRow({ items, reverse }: { items: Skill[]; reverse?: boolean }) {
         {loop.map((skill, i) => (
           <div
             key={`${skill.id}-${i}`}
-            className="flex shrink-0 items-center gap-2.5 rounded-full border border-black/10 bg-white/70 py-1.5 pl-1.5 pr-4 text-sm text-gray-800 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-gray-200"
+            className="flex shrink-0 items-center gap-2.5 rounded-full border border-brand-border bg-brand-surface py-1.5 pl-1.5 pr-4 text-sm text-brand-text shadow-sm backdrop-blur dark:border-brand-border dark:bg-brand-surface "
           >
             <span className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-white p-1">
               <SmartImage
@@ -144,7 +144,7 @@ function SkillCard({ skill, index }: { skill: Skill; index: number }) {
       whileHover={reduce ? undefined : { y: -6 }}
       onPointerMove={onMove}
       tabIndex={0}
-      className="group relative overflow-hidden rounded-2xl border border-black/10 bg-white/70 p-4 shadow-sm backdrop-blur transition-shadow hover:shadow-xl hover:shadow-cyan-500/10 focus-visible:ring-2 focus-visible:ring-cyan-500 dark:border-white/10 dark:bg-white/[0.04] md:p-5"
+      className="group relative overflow-hidden rounded-2xl border border-brand-border bg-brand-surface p-4 shadow-sm backdrop-blur transition-shadow hover:shadow-xl hover:shadow-indigo-500/10 focus-visible:ring-2 focus-visible:ring-indigo-500 dark:border-brand-border dark:bg-brand-surface md:p-5"
     >
       {/* Mouse-follow glow */}
       <div
@@ -152,7 +152,7 @@ function SkillCard({ skill, index }: { skill: Skill; index: number }) {
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{
           background:
-            "radial-gradient(220px circle at var(--x, 50%) var(--y, 50%), rgba(0,188,212,0.18), transparent 70%)",
+            "radial-gradient(220px circle at var(--x, 50%) var(--y, 50%), rgba(99,102,241,0.18), transparent 70%)",
         }}
       />
 
@@ -169,17 +169,17 @@ function SkillCard({ skill, index }: { skill: Skill; index: number }) {
         {level.rank > 0 && <span title="Experience-based level" className={`rounded-full px-2 py-0.5 text-[11px] font-medium ${level.chip}`}>{level.label}</span>}
       </div>
 
-      <h3 className="relative mt-3 font-poppins text-base font-semibold text-gray-900 dark:text-white md:text-lg">
+      <h3 className="relative mt-3 font-poppins text-base font-semibold text-brand-text md:text-lg">
         {skill.skill_name}
       </h3>
 
       {level.rank > 0 && <div className="relative mt-2 flex gap-1" role="img" aria-label={`${level.label}: ${level.rank} of 4 experience-based levels`}>
-        {[1, 2, 3, 4].map(step => <span key={step} className="h-1.5 flex-1 overflow-hidden rounded-full bg-black/10 dark:bg-white/10">
+        {[1, 2, 3, 4].map(step => <span key={step} className="h-1.5 flex-1 overflow-hidden rounded-full bg-black/10 dark:bg-brand-soft">
           <motion.span className={`block h-full rounded-full ${level.bar}`} initial={{width:reduce && step<=level.rank?'100%':0}} whileInView={{width:step<=level.rank?'100%':0}} viewport={{once:true}} transition={{duration:reduce?0:.6,delay:reduce?0:.25+step*.12,ease:'easeOut'}}/>
         </span>)}
       </div>}
-      {skill.experience_label && <p className="relative mt-2 text-xs font-medium text-cyan-700 dark:text-cyan-300">{skill.experience_label}</p>}
-      {skill.details && <p className="relative mt-2 line-clamp-3 text-xs leading-relaxed text-gray-600 dark:text-gray-400">
+      {skill.experience_label && <p className="relative mt-2 text-xs font-medium text-brand-accent ">{skill.experience_label}</p>}
+      {skill.details && <p className="relative mt-2 line-clamp-3 text-xs leading-relaxed text-brand-muted ">
         {skill.details}
       </p>}
     </motion.div>
@@ -230,26 +230,26 @@ export default function SkillsSection({ skills: input }: { skills: SkillInfo[] }
         transition={{ duration: 0.5 }}
         className="text-center"
       >
-        <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-xs font-medium uppercase tracking-widest text-cyan-700 dark:text-cyan-300">
-          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan-500" />
+        <span className="inline-flex items-center gap-2 rounded-full border border-brand-border bg-brand-soft px-3 py-1 text-xs font-medium uppercase tracking-widest text-brand-accent ">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-indigo-500" />
           Toolkit
         </span>
         <h2
           id="skills-heading"
-          className="mt-4 font-poppins text-3xl font-bold text-gray-900 dark:text-white md:text-4xl lg:text-5xl"
+          className="mt-4 font-poppins text-3xl font-bold text-brand-text md:text-4xl lg:text-5xl"
         >
           Skills &{" "}
-          <span className="bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400 bg-clip-text text-transparent">
+          <span className="brand-highlight">
             Technologies
           </span>
         </h2>
-        <p className="mx-auto mt-3 max-w-xl text-sm text-gray-600 dark:text-gray-400 md:text-base">
+        <p className="mx-auto mt-3 max-w-xl text-sm text-brand-muted md:text-base">
           The stack I use to design, build and ship full-stack products, from
           responsive interfaces to typed APIs.
         </p>
       </motion.div>
 
-      <p className="mx-auto mt-3 max-w-2xl text-center text-xs text-gray-500 dark:text-gray-400">Experience-based levels: Learning &lt;1 year · Intermediate 1–&lt;2 · Proficient 2–&lt;3 · Advanced 3+. These indicate time using a technology, not assessed proficiency.</p>
+      <p className="mx-auto mt-3 max-w-2xl text-center text-xs text-brand-muted ">Experience-based levels: Learning &lt;1 year · Intermediate 1–&lt;2 · Proficient 2–&lt;3 · Advanced 3+. These indicate time using a technology, not assessed proficiency.</p>
 
       {/* Stats */}
       <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
@@ -260,12 +260,12 @@ export default function SkillsSection({ skills: input }: { skills: SkillInfo[] }
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.08, duration: 0.4 }}
-            className="rounded-2xl border border-black/10 bg-white/70 px-4 py-4 text-center backdrop-blur dark:border-white/10 dark:bg-white/[0.04]"
+            className="rounded-2xl border border-brand-border bg-brand-surface px-4 py-4 text-center backdrop-blur dark:border-brand-border dark:bg-brand-surface"
           >
-            <div className="bg-gradient-to-br from-cyan-500 to-emerald-400 bg-clip-text font-poppins text-3xl font-bold text-transparent md:text-4xl">
+            <div className="text-brand-accent font-poppins text-3xl font-bold md:text-4xl">
               <CountUp to={stat.value} suffix={stat.suffix} />
             </div>
-            <div className="mt-1 text-xs text-gray-600 dark:text-gray-400 md:text-sm">
+            <div className="mt-1 text-xs text-brand-muted md:text-sm">
               {stat.label}
             </div>
           </motion.div>
@@ -292,17 +292,17 @@ export default function SkillsSection({ skills: input }: { skills: SkillInfo[] }
               type="button"
               aria-pressed={selected}
               onClick={() => setGroup(g.id)}
-              className="relative rounded-full px-4 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:text-cyan-700 dark:text-gray-300 dark:hover:text-cyan-200"
+              className="relative rounded-full px-4 py-1.5 text-sm font-medium text-brand-muted transition-colors hover:text-brand-accent "
             >
               {selected && (
                 <motion.span
                   layoutId="skills-pill"
-                  className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-600 to-teal-500 shadow-lg shadow-cyan-500/30"
+                  className="absolute inset-0 rounded-full brand-action shadow-lg shadow-indigo-500/30"
                   transition={{ type: "spring", stiffness: 400, damping: 32 }}
                 />
               )}
               {!selected && (
-                <span className="absolute inset-0 rounded-full border border-black/10 dark:border-white/15" />
+                <span className="absolute inset-0 rounded-full border border-brand-border dark:border-brand-border" />
               )}
               <span className={`relative ${selected ? "text-white" : ""}`}>
                 {g.label}

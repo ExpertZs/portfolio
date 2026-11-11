@@ -30,7 +30,7 @@ export function parseReply(raw: string): { text: string; cards: CardRef[] } {
 }
 
 const cardBase =
-  "block rounded-lg border border-cyan-500/30 bg-white/70 p-3 text-sm shadow-sm transition hover:border-cyan-500 dark:bg-black/40";
+  "block rounded-lg border border-brand-border bg-brand-surface p-3 text-sm shadow-sm transition hover:border-brand-accent dark:bg-brand-surface";
 
 export default function ChatCards({ cards }: { cards: CardRef[] }) {
   if (!cards.length) return null;
@@ -42,7 +42,7 @@ export default function ChatCards({ cards }: { cards: CardRef[] }) {
             <Link
               key={index}
               href="/contact"
-              className="rounded-lg bg-gradient-to-br from-cyan-500 to-teal-700 px-3 py-2 text-center text-sm font-medium text-white"
+              className="rounded-lg brand-action px-3 py-2 text-center text-sm font-medium text-white"
             >
               Contact me / book a call
             </Link>
@@ -54,10 +54,10 @@ export default function ChatCards({ cards }: { cards: CardRef[] }) {
           const href = project.live_link || project.github_link;
           return (
             <div key={index} className={cardBase}>
-              <div className="font-semibold text-primary_dark dark:text-cyan-300">
+              <div className="font-semibold text-brand-accent ">
                 {project.project_title}
               </div>
-              <div className="mt-1 text-gray-700 dark:text-gray-300">
+              <div className="mt-1 text-brand-muted ">
                 {project.project_details}
               </div>
               <div className="mt-2 flex flex-wrap gap-1">
@@ -75,7 +75,7 @@ export default function ChatCards({ cards }: { cards: CardRef[] }) {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 inline-block text-cyan-600 underline dark:text-cyan-300"
+                  className="mt-2 inline-block text-brand-accent underline "
                 >
                   {project.live_link ? "Live demo" : "View on GitHub"}
                 </a>
@@ -87,10 +87,10 @@ export default function ChatCards({ cards }: { cards: CardRef[] }) {
         if (!blog) return null;
         return (
           <Link key={index} href={`/blogs/${blog.id}`} className={cardBase}>
-            <div className="text-[11px] uppercase tracking-wide text-gray-500">
+            <div className="text-[11px] uppercase tracking-wide text-brand-muted">
               Blog · {blog.date}
             </div>
-            <div className="font-semibold text-primary_dark dark:text-cyan-300">
+            <div className="font-semibold text-brand-accent ">
               {blog.title}
             </div>
           </Link>
