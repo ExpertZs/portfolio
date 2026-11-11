@@ -38,6 +38,6 @@ export const presentationProjects: ProjectInfo[] = [...projects]
  .sort((a,b)=>Number(!!b.shared)-Number(!!a.shared))
  .map((project,index)=>({id:index+1,type:project.category==='AI'?'ai':'web',category:'professional',src:project.image,
  project_title:project.displayName||project.name,project_details:project.description,stack:project.stack,
- live_link:project.url||undefined,featured:project.name==='Raggie',demoUnavailable:project.demoUnavailable,isPrivate:project.isPrivate,illustrated:!project.shared}));
+ live_link:project.url||undefined,featured:['Raggie','Online Reputation Management'].includes(project.name),demoUnavailable:project.demoUnavailable,isPrivate:project.isPrivate,illustrated:!project.shared}));
 const serviceIcons: ServiceInfo['iconKey'][] = ['web','ai','saas','api','performance'];
 export const presentationServices: ServiceInfo[] = services.map((service,index)=>({id:index+1,iconKey:serviceIcons[index],featured:index<3,service_title:service.title,tagline:service.description,highlights:service.points,tech:service.stack,service_details:service.workflow}));

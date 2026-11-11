@@ -370,7 +370,7 @@ export default function ProjectsSection({
               key={project.id}
               project={project}
               index={i}
-              featured={i === 0 && !!project.featured}
+              featured={!!project.featured}
             />
           ))}
         </AnimatePresence>
