@@ -14,7 +14,7 @@ const ICONS: Record<string, { Icon: React.ComponentType<{ size?: number }>; clas
   facebook: { Icon: FaFacebook, className: "text-[#1877F2]" },
   instagram: { Icon: FaInstagram, className: "text-[#E1306C]" },
   github: { Icon: FaGithub, className: "dark:text-white text-brand-muted" },
-  linkedin: { Icon: FaLinkedin, className: "text-[#0077B5]" },
+  linkedin: { Icon: FaLinkedin, className: "text-[#0077B5] dark:text-[#70b5f9]" },
   twitter: { Icon: FaTwitter, className: "text-[#1DA1F2]" },
   x: { Icon: FaTwitter, className: "dark:text-white text-brand-muted" },
   youtube: { Icon: FaYoutube, className: "text-[#FF0000]" },

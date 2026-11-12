@@ -7,7 +7,7 @@ export const contact: ContactInfo = {
  location:'Dhaka, Bangladesh', time_zone:'GMT+6', email:profile.email,
  phone_primary:profile.phone, portfolio_url:process.env.NEXT_PUBLIC_SITE_URL || '',
  availability:'', response_time:'', office_hours:'', preferred_contact_methods:['email','phone'],
- socials:[{platform:'GitHub',handle:'ExpertZs',url:profile.github}]
+ socials:[{platform:'GitHub',handle:'ExpertZs',url:profile.github},{platform:'LinkedIn',handle:'Md. Zahidul Islam',url:profile.linkedin}]
 };
 export const about: AboutInfo = {
  name:profile.name, summary:profile.summary,
