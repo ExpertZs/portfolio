@@ -31,7 +31,7 @@ Public API routes enforce payload limits, validation, origin checks, timeouts, a
 
 ## Content and provenance
 
-The approved downloadable CV is the exact user-supplied `Zahidul_Islam_Resume_No_RBAC.pdf`, stored as `resume/approved-resume.pdf`. `npm run resume:build` copies that approved file to `public/Zahidul_Islam_Resume.pdf` without regenerating or altering it. `npm run resume:draft` creates a separate `resume/generated-draft.pdf` from portfolio data for review and never replaces the approved download. The original Downloads PDF remains unchanged. The supplied `zahidul_f.png` is the desktop hero portrait; `zahidul_c.png` is used for About, mobile, and avatar slots. Resume facts include four employers, six projects, education, and certifications. No invented skill proficiency percentages, client counts, testimonials, articles, or private repository links.
+The approved downloadable CV is the exact user-supplied `Zahidul_Islam_Resume_Uniform_Projects.pdf`, stored as `resume/approved-resume.pdf`. `npm run resume:build` copies that approved file to `public/Zahidul_Islam_Resume.pdf` without regenerating or altering it. `npm run resume:draft` creates a separate `resume/generated-draft.pdf` from portfolio data for review and never replaces the approved download. The original Downloads PDF remains unchanged. The supplied `zahidul_f.png` is the desktop hero portrait; `zahidul_c.png` is used for About, mobile, and avatar slots. Resume facts include four employers, six projects, education, and certifications. No invented skill proficiency percentages, client counts, testimonials, articles, or private repository links.
 
 ## Reference implementation
 

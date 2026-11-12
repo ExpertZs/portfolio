@@ -1,5 +1,5 @@
 export const profile = {
- name: 'Md. Zahidul Islam', email: 'zs.engineer1@gmail.com', phone: '+8801754898514', github: 'https://github.com/ExpertZs',
+ name: 'Md. Zahidul Islam', email: 'zs.engineer1@gmail.com', phone: '+8801754898514', github: 'https://github.com/ExpertZs', linkedin: 'https://www.linkedin.com/in/md-zahidul-327aa4198',
  summary: 'Full-Stack Software Engineer focused on React, Next.js, and TypeScript, with 4+ years delivering web applications and collaborating with Japan-based teams. Experience spans reusable interfaces, API and database integration, Stripe payment flows, and AI-powered knowledge applications.'
 };
 export const training = [{degree:'BJET 10th Basic Japanese Language Program',institution:'University of Miyazaki & North South University',field:'',year:'Apr–Sep 2022 (online)'}];
