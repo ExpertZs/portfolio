@@ -229,6 +229,16 @@ function ProjectCard({
           )}
         </div>
 
+        {project.project_title === "PM Dekirukun" && (
+          <div className="mt-4 rounded-xl border border-brand-border bg-brand-soft p-3 text-xs text-brand-text">
+            <p className="font-semibold">Testing demo login</p>
+            <dl className="mt-2 space-y-1">
+              <div className="flex flex-wrap gap-2"><dt>User ID:</dt><dd><code className="select-all font-semibold">ndi_admin</code></dd></div>
+              <div className="flex flex-wrap gap-2"><dt>Password:</dt><dd><code className="select-all font-semibold">ndi_admin</code></dd></div>
+            </dl>
+          </div>
+        )}
+
         <div className="mt-auto flex flex-wrap items-center gap-2 pt-5">
           {project.live_link && (
             <a
