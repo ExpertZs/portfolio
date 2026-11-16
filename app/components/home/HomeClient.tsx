@@ -76,7 +76,7 @@ const HomePage = ({ about, skills, services, projects }: HomeProps) => {
             </motion.div>
           </div>
 
-          <div id="selected-work" className="scroll-mt-28"><ProjectsSection projects={projects.filter(p => [1,2,4].includes(p.id))} compact /></div>
+          <div id="selected-work" className="scroll-mt-28"><ProjectsSection projects={projects.filter(p => ['KnowledgeLinks AI (Raggie)', 'Suirikyou', 'Brand Cloud Corporate Website', 'PM Dekirukun'].includes(p.project_title))} compact /></div>
           <div className="text-center"><Link href="/projects" className="text-brand-accent underline underline-offset-4">View all projects →</Link></div>
           <section className="mx-auto my-12 max-w-6xl rounded-2xl border border-brand-border p-6 md:p-8"><h2 className="text-2xl font-bold">Production experience, across teams</h2><p className="mt-3 text-brand-muted ">Software Engineer at Ninja Digital Innovations. Previously Brand Cloud, Suncreer, and Bconns — delivering web interfaces, APIs, payment flows, and inventory workflows.</p><p className="mt-3 text-brand-muted ">{testingExperience}</p><Link href="/experience" className="mt-4 inline-block text-brand-accent underline underline-offset-4">Explore my experience →</Link></section>
           <SkillsSection skills={skills.filter(s => ['JavaScript','TypeScript','React','Next.js','Tailwind CSS','Node.js','PostgreSQL','Prisma'].includes(s.skill_name))} />
