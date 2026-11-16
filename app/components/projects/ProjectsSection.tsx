@@ -19,14 +19,14 @@ import { openChat } from "../display/ChatIcon";
 type TypeId = "ai" | "web" | "mobile";
 type TypeFilter = "all" | TypeId;
 type OriginFilter = "all" | "professional" | "personal";
-
 // Professional work first; array order (stable sort) otherwise.
 const sortProjects = (list: ProjectInfo[]) =>
   list
     .slice()
     .sort(
       (a, b) =>
-        Number(b.category === "professional") - Number(a.category === "professional")
+        Number(b.category === "professional") -
+        Number(a.category === "professional"),
     );
 
 // Full class strings so Tailwind can see them at build time.
@@ -61,7 +61,6 @@ const TYPE_FILTERS: { id: TypeFilter; label: string }[] = [
   { id: "all", label: "All" },
   { id: "ai", label: "AI" },
   { id: "web", label: "Web" },
-
 ];
 
 const ORIGIN_FILTERS: { id: OriginFilter; label: string }[] = [
@@ -86,7 +85,11 @@ function Pills<T extends string>({
   counts: Record<string, number>;
 }) {
   return (
-    <div role="group" aria-label={label} className="flex flex-wrap items-center justify-center gap-2">
+    <div
+      role="group"
+      aria-label={label}
+      className="flex flex-wrap items-center justify-center gap-2"
+    >
       {items.map((item) => {
         const selected = value === item.id;
         return (
@@ -106,7 +109,9 @@ function Pills<T extends string>({
             ) : (
               <span className="absolute inset-0 rounded-full border border-brand-border dark:border-brand-border" />
             )}
-            <span className={`relative flex items-center gap-1.5 ${selected ? "text-white" : ""}`}>
+            <span
+              className={`relative flex items-center gap-1.5 ${selected ? "text-white" : ""}`}
+            >
               {item.label}
               <span
                 className={`rounded-full px-1.5 text-[10px] ${
@@ -142,6 +147,7 @@ function ProjectCard({
     e.currentTarget.style.setProperty("--x", `${e.clientX - rect.left}px`);
     e.currentTarget.style.setProperty("--y", `${e.clientY - rect.top}px`);
   };
+  const [showCredentials, setShowCredentials] = useState(false);
 
   return (
     <motion.article
@@ -150,23 +156,24 @@ function ProjectCard({
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       exit={reduce ? undefined : { opacity: 0, scale: 0.92 }}
       viewport={{ once: true, amount: 0.1 }}
-      transition={{ type: "spring", stiffness: 240, damping: 26, delay: (index % 3) * 0.07 }}
+      transition={{
+        type: "spring",
+        stiffness: 240,
+        damping: 26,
+        delay: (index % 3) * 0.07,
+      }}
       whileHover={reduce ? undefined : { y: -6 }}
       onPointerMove={onMove}
       style={{ ["--glow" as string]: type.glow }}
       className="group relative flex overflow-hidden rounded-3xl border border-brand-border bg-brand-surface shadow-sm backdrop-blur transition-shadow duration-300 hover:shadow-2xl hover:shadow-indigo-500/10 dark:border-brand-border dark:bg-brand-surface h-full flex-col"
     >
       {/* Image */}
-      <div
-        className="relative overflow-hidden bg-brand-soft dark:bg-brand-surface aspect-[16/10] w-full shrink-0"
-      >
+      <div className="relative overflow-hidden bg-brand-soft dark:bg-brand-surface aspect-[16/10] w-full shrink-0">
         <SmartImage
           src={project.src}
           alt={`${project.project_title} ${project.illustrated ? "illustrated cover" : "project preview"}`}
           fill
-          sizes={
-            "(min-width: 1100px) 380px, (min-width: 768px) 50vw, 100vw"
-          }
+          sizes={"(min-width: 1100px) 380px, (min-width: 768px) 50vw, 100vw"}
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
         />
         <div
@@ -180,7 +187,11 @@ function ProjectCard({
             {type.icon}
             {type.label}
           </span>
-          {project.isPrivate && <span className="rounded-full bg-slate-900 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur">Private</span>}
+          {project.isPrivate && (
+            <span className="rounded-full bg-slate-900 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur">
+              Private
+            </span>
+          )}
           {featured && (
             <span className="flex items-center gap-1 rounded-full bg-slate-900 px-2.5 py-1 text-[11px] font-semibold text-amber-300 backdrop-blur">
               <MdStar /> Featured
@@ -206,9 +217,7 @@ function ProjectCard({
 
       {/* Body */}
       <div className="relative flex flex-1 flex-col p-5 md:p-6">
-        <h3
-          className="font-poppins font-semibold text-brand-text text-lg md:text-xl"
-        >
+        <h3 className="font-poppins font-semibold text-brand-text text-lg md:text-xl">
           {project.project_title}
         </h3>
         <p className="mt-2 text-sm leading-relaxed text-brand-muted md:text-[15px]">
@@ -225,19 +234,11 @@ function ProjectCard({
             </span>
           ))}
           {extra > 0 && (
-            <span className="rounded-full px-2 py-0.5 text-[11px] text-brand-muted">+{extra}</span>
+            <span className="rounded-full px-2 py-0.5 text-[11px] text-brand-muted">
+              +{extra}
+            </span>
           )}
         </div>
-
-        {project.project_title === "PM Dekirukun" && (
-          <div className="mt-4 rounded-xl border border-brand-border bg-brand-soft p-3 text-xs text-brand-text">
-            <p className="font-semibold">Testing demo login</p>
-            <dl className="mt-2 space-y-1">
-              <div className="flex flex-wrap gap-2"><dt>User ID:</dt><dd><code className="select-all font-semibold">ndi_admin</code></dd></div>
-              <div className="flex flex-wrap gap-2"><dt>Password:</dt><dd><code className="select-all font-semibold">ndi_admin</code></dd></div>
-            </dl>
-          </div>
-        )}
 
         <div className="mt-auto flex flex-wrap items-center gap-2 pt-5">
           {project.live_link && (
@@ -250,8 +251,20 @@ function ProjectCard({
               Live demo <MdArrowOutward className="text-sm" />
             </a>
           )}
-          {!project.live_link && <span className="text-xs text-brand-muted ">{project.isPrivate ? "Private project" : project.demoUnavailable ? "Demo currently unavailable" : "Public link not provided"}</span>}
-          {project.illustrated && <span className="text-[10px] text-brand-muted">Illustrated cover</span>}
+          {!project.live_link && (
+            <span className="text-xs text-brand-muted ">
+              {project.isPrivate
+                ? "Private project"
+                : project.demoUnavailable
+                  ? "Demo currently unavailable"
+                  : "Public link not provided"}
+            </span>
+          )}
+          {project.illustrated && (
+            <span className="text-[10px] text-brand-muted">
+              Illustrated cover
+            </span>
+          )}
           {project.github_link && (
             <a
               href={project.github_link}
@@ -262,11 +275,56 @@ function ProjectCard({
               <FaGithub /> Code
             </a>
           )}
+          {project?.testCredentials && (
+            <>
+              <button
+                type="button"
+                onClick={() => setShowCredentials(!showCredentials)}
+                className="flex items-center gap-1 rounded-full border border-brand-border px-2.5 py-1.5 text-sm font-medium text-brand-muted transition hover:border-brand-accent hover:text-brand-accent dark:border-brand-border"
+              >
+                {showCredentials ? "Hide Creds" : "Show Creds"}
+              </button>
+
+              {showCredentials && project.testCredentials && (
+                <div className="flex flex-wrap items-center gap-2 rounded-xl border border-brand-border bg-brand-soft p-3 text-xs text-brand-text">
+                  <div className="flex flex-wrap gap-2">
+                    <span>User ID:</span>
+                    <code
+                      className="cursor-pointer select-all font-semibold"
+                      title="Click to copy"
+                      onClick={() =>
+                        navigator.clipboard.writeText(
+                          project.testCredentials?.username ?? "",
+                        )
+                      }
+                    >
+                      {project.testCredentials.username}
+                    </code>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    <span>Password:</span>
+                    <code
+                      className="cursor-pointer select-all font-semibold"
+                      title="Click to copy"
+                      onClick={() =>
+                        navigator.clipboard.writeText(
+                          project.testCredentials?.password ?? "",
+                        )
+                      }
+                    >
+                      {project.testCredentials.password}
+                    </code>
+                  </div>
+                </div>
+              )}
+            </>
+          )}
           <button
             type="button"
             onClick={() =>
               openChat(
-                `Tell me about the "${project.project_title}" project: what it does, the stack, and what Zahidul built.`
+                `Tell me about the "${project.project_title}" project: what it does, the stack, and what Zahidul built.`,
               )
             }
             className="flex items-center gap-1 rounded-full border border-brand-border px-3.5 py-1.5 text-xs font-medium text-brand-muted transition hover:border-brand-accent hover:text-brand-accent dark:border-brand-border "
@@ -301,12 +359,18 @@ export default function ProjectsSection({
   // Each pill's count respects the *other* filter, so numbers match what you'd see.
   const typeCounts = useMemo(() => {
     const out: Record<string, number> = {};
-    TYPE_FILTERS.forEach((f) => (out[f.id] = projects.filter((p) => matches(p, f.id, origin)).length));
+    TYPE_FILTERS.forEach(
+      (f) =>
+        (out[f.id] = projects.filter((p) => matches(p, f.id, origin)).length),
+    );
     return out;
   }, [origin, projects]);
   const originCounts = useMemo(() => {
     const out: Record<string, number> = {};
-    ORIGIN_FILTERS.forEach((f) => (out[f.id] = projects.filter((p) => matches(p, type, f.id)).length));
+    ORIGIN_FILTERS.forEach(
+      (f) =>
+        (out[f.id] = projects.filter((p) => matches(p, type, f.id)).length),
+    );
     return out;
   }, [type, projects]);
 
@@ -340,14 +404,11 @@ export default function ProjectsSection({
           id="projects-heading"
           className="mt-4 font-poppins text-3xl font-bold text-brand-text md:text-4xl lg:text-5xl"
         >
-          Selected{" "}
-          <span className="brand-highlight">
-            work
-          </span>
+          Selected <span className="brand-highlight">work</span>
         </Title>
         <p className="mx-auto mt-3 max-w-2xl text-sm text-brand-muted md:text-base">
-          Production websites, AI products and shared professional work. Open any
-          project, or ask the AI how it was made.
+          Production websites, AI products and shared professional work. Open
+          any project, or ask the AI how it was made.
         </p>
       </motion.div>
 

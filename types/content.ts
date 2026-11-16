@@ -8,6 +8,7 @@ export type ProjectInfo = {
   github_link?: string;
   live_link?: string;
   stack: string[];
+  testCredentials?: { username: string; password: string };
   featured?: boolean;
   demoUnavailable?: boolean;
   isPrivate?: boolean;
