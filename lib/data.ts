@@ -3,7 +3,7 @@ export const profile = {
   email: "zs.engineer1@gmail.com",
   phone: "+8801754898514",
   github: "https://github.com/ExpertZs",
-  linkedin: "https://www.linkedin.com/in/md-zahidul-327aa4198",
+  linkedin: "https://www.linkedin.com/in/md-zahidul-islam-327aa4198/",
   summary:
     "Full-Stack Software Engineer focused on React, Next.js, and TypeScript, with 4+ years delivering web applications and collaborating with Japan-based teams. Experience spans reusable interfaces, API and database integration, Stripe payment flows, and AI-powered knowledge applications.",
 };
